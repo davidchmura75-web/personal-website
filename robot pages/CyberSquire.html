@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>David's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="robot-styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../robots.html">Robots</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <h1 class="title_block">The Cybersquire</h1>
+      <div class="container-2-2">
+        <div class="picture">
+          <img src="../media/Loaded Dashboard.png" alt="Dashboard Connected" class="robot-picture"/>
+        </div>
+        <p class="paragraph">
+            The Cybersquire the is project I worked on in 10th grade. It serves as the human interface for looking at data and controlling the robot. It has many sections ranging from selecting the auto we will run to
+            displaying essential robot diagnostics. It is a web app built with HTML, CSS, and Javascript which helps connect to the robot and field.
+      </div>
+      <div class="container-2-2">
+        <p class="paragraph">
+            My favorite part of the CyberSquire is the motor and node faults column. It displays a list of motors and nodes sent over from the health management node on the robot.
+            The faults and nodes have different priorities, which are color coded, and can help the drivers see any problems with the robot mid match, showing the node/motor and type of fault.
+            It also helps diagnose problems to solve them faster after matches. The real reason I like it so much is that it is reusable year after year to help the team solve problems years into the 
+            future.
+        </p>
+        <div class="picture">
+          <img src="../media/Unloaded Dashboard.png" alt="Dashboard Disconnected" class="robot-picture"/>
+        </div>
+      </div>
+      <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ros2/cybersquire">See the Code!</a></h3>
+    </div>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
