@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+:root {
+  --rail-w: 152px;
+  --rail-bg: #000;
+  --rail-fg: #fff;
+  --rail-fg-dim: #c9ccd1;
+  --page-bg: #ffebcd;
+  --card-bg: #f7f8fa;
+  --surface: #fff;
+  --thumb-bg: #eceef2;
+  --fg: #050e1f;
+  --rule: #d7dae1;
+  --foot-bg: #000;
+  --foot-fg: #fafdf6;
+}
+
+html[data-theme="dark"] {
+  --page-bg: #0b0d0e;
+  --card-bg: #1c1e1f;
+  --surface: #26292b;
+  --thumb-bg: #141617;
+  --fg: #e6e9ee;
+  --rule: #2c2f31;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--fg);
+  background-color: var(--page-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- side rails --- */
+
+.rail {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--rail-w);
+  padding: 40px 0;
+  background-color: var(--rail-bg);
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.rail-left {
+  left: 0;
+}
+
+.rail-right {
+  right: 0;
+}
+
+.rail-item {
+  display: block;
+  width: 100%;
+  padding: 28px 10px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--rail-fg-dim);
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.rail-item:hover,
+.rail-item:focus-visible {
+  color: var(--rail-fg);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.rail-item svg {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.rail-label {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* --- center column --- */
+
+.view {
+  margin-left: var(--rail-w);
+  margin-right: var(--rail-w);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+  margin: 5% 10% 0;
+  padding: 4% 5%;
+  min-height: 60vh;
+  background-color: var(--card-bg);
+  border: 1px solid var(--rule);
+}
+
+/* --- name + social links, home page only --- */
+
+.page-head {
+  text-align: center;
+  padding-bottom: 28px;
+}
+
+.page-name {
+  margin: 0;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.page-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.page-links a {
+  display: inline-flex;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.page-links a:hover,
+.page-links a:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.page-links svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Page headings sit above centered content on every page that uses them. */
+.title_block {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* --- embedded PDF --- */
+
+.pdf-block {
+  margin-top: 32px;
+}
+
+.pdf-embed {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 480px;
+  background-color: var(--thumb-bg);
+  border: 1px solid var(--rule);
+}
+
+/* Shown by the browser only when it won't render the PDF inline. */
+.pdf-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.pdf-actions {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.pdf-download {
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  opacity: 0.8;
+  transition: opacity 0.18s ease;
+}
+
+.pdf-download:hover,
+.pdf-download:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .pdf-embed {
+    height: 60vh;
+    min-height: 360px;
+  }
+}
+
+/* --- footer --- */
+
+.foot {
+  flex: 0 0 auto;
+  margin-top: 5%;
+  padding: 2% 0 3%;
+  background-color: var(--foot-bg);
+  color: var(--foot-fg);
+  text-align: center;
+}
+
+.foot .legal {
+  color: var(--foot-fg);
+  font-size: 0.9rem;
+}
+
+/* --- theme toggle --- */
+
+/* The moon shows in light mode (click to go dark) and the sun in dark mode. */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* --- mobile: left rail becomes a top bar, right rail folds into it --- */
+
+@media screen and (max-width: 1080px) {
+  .rail {
+    position: static;
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .rail-left {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rail-right {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    width: auto;
+    padding: 0;
+    background: none;
+    z-index: 3;
+  }
+
+  .rail-item {
+    width: auto;
+    padding: 14px 20px;
+  }
+
+  /* Floats over the page, so it needs to carry its own dark pill. */
+  .rail-right .rail-item {
+    padding: 10px;
+    border-radius: 999px;
+    background-color: var(--rail-bg);
+    color: var(--rail-fg);
+  }
+
+  .rail-item svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .rail-right .rail-label {
+    display: none;
+  }
+
+  .view {
+    margin: 0;
+    min-height: auto;
+  }
+
+  .main {
+    margin: 0;
+    padding: 8% 6%;
+    border: 0;
+  }
+
+  .page-name {
+    font-size: 2.2rem;
+  }
+
+  .foot {
+    margin-top: 0;
+    padding: 6% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-item {
+    transition: none;
+  }
+}

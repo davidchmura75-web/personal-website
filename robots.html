@@ -3,121 +3,117 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David's Portfolio</title>
+    <title>Robots &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="main.js" defer></script>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="robots.html">Robots</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body data-page="robots">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
 
-    <div class="container my-5">
-      <h1 class="title_block">Robots I Worked On</h1>
-      <div class="row row-cols-3 g-5">
-        <div class="col">
-          <div class="card">
-            <a style="opacity: 0;" href="robot pages/Knightquil.html" class="btn btn-primary stretched-link"></a>
-            <img src=".\media\knightquil.jpg" class="card-img-top"
-              alt="KnightQuil FRC Robot" />
-            <div class="card-body">
-              <h5 class="card-title">KnightQuil</h5>
-              <p class="card-text">
-                The robot our team made for the FRC game 'Reefscape'
-              </p>
+    <div class="view">
+      <main class="main">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/knightquil.jpg" class="card-img-top"
+                alt="KnightQuil, team 195's FRC robot, standing in the workshop with purple LED strips lighting its tall elevator above black 195 bumpers" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="stretched-link" href="robot pages/Knightquil.html">KnightQuil</a>
+                </h5>
+                <p class="card-text">
+                  The robot our team made for the FRC game 'Reefscape'
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/toppy view.png" class="card-img-top"
+                alt="Top-down view of CyberSurge showing its blue aluminium frame, mecanum wheels, linear slides, and yellow intake" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="stretched-link" href="robot pages/CyberSurge.html">CyberSurge - 2024/2025</a>
+                </h5>
+                <p class="card-text">
+                  My team's robot for the FTC game 'Into The Deep'
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/kinightshiftphoto_clear.png" class="card-img-top"
+                alt="KnightShift: Overtime on red 195 bumpers, showing its blue flywheels, orange intake roller, and chain-driven arm" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="stretched-link" href="robot pages/KnightShift.html">KnightShift: Overtime</a>
+                </h5>
+                <p class="card-text">
+                  The second iteration in the design for our robot for the FRC game 'Crescendo'
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/23367 robot.png" class="card-img-top"
+                alt="CyberBolts, a compact FTC robot with an aluminium frame and purple and yellow hexagonal intake wheels" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="stretched-link" href="robot pages/CyberBolts.html">CyberBolts - 2023/2024</a>
+                </h5>
+                <p class="card-text">
+                  My team's robot for the FTC game 'CenterStage'
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/Loaded Dashboard.png" class="card-img-top"
+                alt="The CyberSquire dashboard, showing robot status readouts, an autonomous path preview over the field map, and a robot warnings panel" />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="stretched-link" href="robot pages/CyberSquire.html">The CyberSquire</a>
+                </h5>
+                <p class="card-text">
+                  This is the dashboard interface for displaying data from our frc robots.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card robot-card">
+              <img src="./media/big daddy.jpeg" class="card-img-top"
+                alt="Big Daddy on the competition field, its clear hopper full of yellow game balls above a red 195 bumper" />
+              <div class="card-body">
+                <h5 class="card-title">Big Daddy</h5>
+                <p class="card-text">
+                  Yes, that's the name, My final high school robot, and the first project I truly led
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <a style="opacity: 0;" href="robot pages/CyberSurge.html" class="btn btn-primary stretched-link"></a>
-            <img src="./media/toppy view.png" class="card-img-top"/>
-            <div class="card-body">
-              <h5 class="card-title">CyberSurge - 2024/2025</h5>
-              <p class="card-text">
-                My team's robot for the FTC game 'Into The Deep'
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-        <div class="card">
-          <a style="opacity: 0;" href="robot pages/KnightShift.html" class="btn btn-primary stretched-link"></a>
-          <img src="./media/kinightshiftphoto_clear.png" class="card-img-top"/>
-          <div class="card-body">
-            <h5 class="card-title">KnightShift: Overtime</h5>
-            <p class="card-text">
-              The second iteration in the design for our robot for the FRC game 'Crescendo'
-            </p>
-          </div>
-        </div>
-      </div>
-        <div class="col">
-          <div class="card">
-            <a style="opacity: 0;" href="robot pages/CyberBolts.html" class="btn btn-primary stretched-link"></a>
-            <img src="./media/23367 robot.png" class="card-img-top"
-              alt="Palm Springs Road" />
-            <div class="card-body">
-              <h5 class="card-title">CyberBolts - 2023/2024</h5>
-              <p class="card-text">
-                My team's robot for the FTC game 'CenterStage'
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <a style="opacity: 0;" href="robot pages/CyberSquire.html" class="btn btn-primary stretched-link"></a>
-            <img src="./media/Loaded Dashboard.png" class="card-img-top"
-              alt="Palm Springs Road" />
-            <div class="card-body">
-              <h5 class="card-title">The CyberSquire</h5>
-              <p class="card-text">
-                This is the dashboard interface for displaying data from our frc robots.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <a style="opacity: 0;" href="robot pages/CyberSquire.html" class="btn btn-primary stretched-link"></a>
-            <img src="./media/Loaded Dashboard.png" class="card-img-top"
-              alt="Palm Springs Road" />
-            <div class="card-body">
-              <h5 class="card-title">Big Daddy</h5>
-              <p class="card-text">
-                My final high school robot, and the first project I truly led
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
   </body>
 </html>

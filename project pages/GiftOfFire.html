@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Gift of Fire &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="project" data-back="../projects.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
+
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">The Gift of Fire</h1>
+
+        <div class="project">
+          <p class="project-blurb">
+            A game made for Mini Game Jam 218: Fire, with a limitation of only 3 colors
+          </p>
+          <div class="video-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M10 8.5l6 3.5-6 3.5z"></path>
+            </svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+
+        <!-- Write-up goes here. -->
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
+    </div>
+  </body>
+</html>

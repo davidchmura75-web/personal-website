@@ -3,76 +3,70 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David's Portfolio</title>
+    <title>KnightQuil &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="robot-styles.css">
+    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../robots.html">Robots</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../projects.html">Projects</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body data-page="robot" data-back="../robots.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
 
-    <div class="container my-5">
-      <h1 class="title_block">KnightQuil</h1>
-      <div class="container-1-3">
-        <div class="picture">
-          <img src="../media/knightquil.jpg" alt="KnightQuil FRC Robot" class="robot-picture"/>
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">KnightQuil</h1>
+
+        <div class="container-1-3">
+          <div class="picture">
+            <img src="../media/knightquil.jpg" alt="KnightQuil, team 195's FRC robot, standing in the workshop with purple LED strips lighting its tall elevator above black 195 bumpers" class="robot-picture"/>
+          </div>
+          <p class="paragraph">
+            Our robot, KnightQuil, consists of a few key subsystems. Firstly, it uses swerve drive with Kraken motors for maximum acceleration. In addition to this, We have a retractable funnel
+            subsystem, which feeds into an elevator mechanism, which allows are robot to score coral(Large PVC Pipes) at multiple levels. We also have functionality to score
+            algae(Large Inflatable Balls) with the scoring mechanism at the end of the elevator. Later in the season, we decided to add a mini ground intake. Our robot is very unique
+            programmically too.
+          </p>
         </div>
-        <p class="paragraph">
-            Our robot, KnightQuil, consists of a few key subsystems. Firstly, it uses swerve drive with Kraken motors for maximum acceleration. In addition to this, We have a retractable funnel 
-            subsystem, which feeds into an elevator mechanism, which allows are robot to score coral(Large PVC Pipes) at multiple levels. We also have functionality to score 
-            algae(Large Inflatable Balls) with the scoring mechanism at the end of the elevator. Later in the season, we decided to add a mini ground intake. Our robot is very unique 
-            programmically too. 
-        </p>
-      </div>
-      <div class="container-2-2">
-        <p class="paragraph">
-            As one of less than 20 FRC teams who use ROS2 as the operating system on our robot, we were able to split our robot's subsystems into multiple different nodes, 
+
+        <div class="container-2-2">
+          <p class="paragraph">
+            As one of less than 20 FRC teams who use ROS2 as the operating system on our robot, we were able to split our robot's subsystems into multiple different nodes,
             like the drivebase, elevator, or climber. We made a model of a robot based on the actual cad with accurate measurements. We also create a field simulation every year for
             the robot to drive in. This allowed us to test the systems on the computer first before using the robot.
-        </p>
-        <div class="picture">
-          <img src="../media/Field-Sim 2025.png" alt="Field Simulation" class="robot-picture"/>
+          </p>
+          <div class="picture">
+            <img src="../media/Field-Sim 2025.png" alt="Wireframe 3D simulation of the 2025 FRC field, showing the red and blue alliance stations, the central truss, and the two reef structures" class="robot-picture"/>
+          </div>
         </div>
-      </div>
-      <div class="container-2-2">
-        <video controls width="100%" height="500px">
-          <source src="../media/knightquil auto.mp4" type="video/mp4">
-        </video>
-        <p class="paragraph">
-          The Simulation also allowed us to test our autos, which use pathplanner, an open source 
-          path planning software. For 15 seconds our robot scored 3 coral pieces on the high level, and had multiple starting positions. As a programmer, I helped to make the robot and field
-          simulations, the autonomous period, tuned specialized cameras, and also helped to create the ground intake node when it was added before the world championships.
-        </p>
-      </div>
-      <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ros2/robots/knight_quil_2025_robot">See the Code!</a></h3>
+
+        <div class="container-2-2">
+          <video controls width="100%" height="500px">
+            <source src="../media/knightquil auto.mp4" type="video/mp4">
+          </video>
+          <p class="paragraph">
+            The Simulation also allowed us to test our autos, which use pathplanner, an open source
+            path planning software. For 15 seconds our robot scored 3 coral pieces on the high level, and had multiple starting positions. As a programmer, I helped to make the robot and field
+            simulations, the autonomous period, tuned specialized cameras, and also helped to create the ground intake node when it was added before the world championships.
+          </p>
+        </div>
+
+        <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ros2/robots/knight_quil_2025_robot">See the Code!</a></h3>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
     </div>
-      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
   </body>
 </html>

@@ -3,64 +3,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David's Portfolio</title>
+    <title>KnightShift: Overtime &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="robot-styles.css">
+    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../robots.html">Robots</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../projects.html">Projects</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body data-page="robot" data-back="../robots.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
 
-    <div class="container my-5">
-      <h1 class="title_block">KnightShift: Overtime</h1>
-      <div class="container-2-2">
-        <div class="picture">
-          <img src="../media/kinightshiftphoto_clear.png" alt="KnightShift Robot" class="robot-picture"/>
-        </div>
-        <p class="paragraph">
-            KnightShift is the robot that our team produced. We started the season with a design that was riddled with design issues and failed in multiple areas. So as a team, we were sent 
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">KnightShift: Overtime</h1>
+
+        <div class="container-2-2">
+          <div class="picture">
+            <img src="../media/kinightshiftphoto_clear.png" alt="KnightShift: Overtime on red 195 bumpers, showing its blue flywheels, orange intake roller, and chain-driven arm" class="robot-picture"/>
+          </div>
+          <p class="paragraph">
+            KnightShift is the robot that our team produced. We started the season with a design that was riddled with design issues and failed in multiple areas. So as a team, we were sent
             to research other designs and come back with an idea for a redesign. After a few days of hard searching, I eventually came back with a concept that was used in the actual design.
             It has a rotating arm with a shooter on it, which allows for both different angles and shooting from both directions when fully upwards.
-      </div>
-      <div class="container-2-2">
-        <p class="paragraph">
+          </p>
+        </div>
+
+        <div class="container-2-2">
+          <p class="paragraph">
             Although I made a few different autonomous routines that year, my most important contribution came when figuring out the function to automatically aim the robot at the speaker(the target to shoot at) based on the distance away from it. Using a trigonometric diagram
             and the different angles from the end effector to the target, I calculated an equation and input it into the python that runs the robot. Although I spent most of that year making the CyberSquire
             I was able to use the skills that I did have from school to help the team, despite being inexperienced at programming.
-        </p>
-        <video controls width="100%" height="500px">
-          <source src="../media/cm-chat-media-video-17e2e965b-96fc-5741-85c7-0b9c8d9395c7143500.mp4" type="video/mp4">
-        </video>
-      </div>
-      <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ros2/robots/knight_shift">See the Code!</a></h3>
+          </p>
+          <video controls width="100%" height="500px">
+            <source src="../media/cm-chat-media-video-17e2e965b-96fc-5741-85c7-0b9c8d9395c7143500.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ros2/robots/knight_shift">See the Code!</a></h3>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
     </div>
-      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
   </body>
 </html>

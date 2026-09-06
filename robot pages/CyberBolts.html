@@ -3,78 +3,75 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>David's Portfolio</title>
+    <title>CyberBolts &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="robot-styles.css">
+    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../resume.html">Resume</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../robots.html">Robots</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../projects.html">Projects</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body data-page="robot" data-back="../robots.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
 
-    <div class="container my-5">
-      <h1 class="title_block">CyberBolts 2023-2024</h1>
-      <div class="container-1-3">
-        <div class="picture">
-          <img src="../media/23367 robot.png" alt="Dashboard Connected" class="robot-picture"/>
-        </div>
-        <p class="paragraph">
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">CyberBolts 2023-2024</h1>
+
+        <div class="container-1-3">
+          <div class="picture">
+            <img src="../media/23367 robot.png" alt="CyberBolts, a compact FTC robot with an aluminium frame and purple and yellow hexagonal intake wheels" class="robot-picture"/>
+          </div>
+          <p class="paragraph">
             Cyberbolts was the FTC team I was on in tenth grade. For the game, Centerstage, we went through an iterative design process. As a team member, I helped brainstorm an idea originally,
             which composed of an elevator handoff style system. However, with our team's robot breaking repeatedly throughout testing, we decided to redesign. Our new robot used a rotating arm
             without an elevator, which helped us be efficient in our scoring.
-      </div>
-      <div class="container-3-1">
-        <p class="paragraph">
+          </p>
+        </div>
+
+        <div class="container-3-1">
+          <p class="paragraph">
             While waiting for the robot to be assembled, I brainstormed controls for the robot that would be simple yet have all the functionality needed. Once I got the robot, it was time to go
-            to work. I was able to utilize the holonomic movement from our mecanum drive to link the controls to a joystick. I also used an imu to determine direction to get field centric driving 
+            to work. I was able to utilize the holonomic movement from our mecanum drive to link the controls to a joystick. I also used an imu to determine direction to get field centric driving
             as an option. Lastly was the arm itself. By using a PID with an encoder to handle the large amount of backlash in the arm, we got the arm to be able to go to set positions to drop the pieces
-            during the driver controller period. 
-        <div class="picture">
-          <img src="../media/Controls.png" alt="Dashboard Disconnected" class="robot-picture"/>
+            during the driver controller period.
+          </p>
+          <div class="picture">
+            <img src="../media/Controls.png" alt="Annotated diagram of two gamepads, one labelled Drive Base Controls and one labelled Operator Controls, with callouts naming the function of each stick and button" class="robot-picture"/>
+          </div>
         </div>
-      </div>
-      <div class="container-1-3">
-        <div class="picture">
-          <img src="../media/big props.png" alt="Dashboard Connected" class="robot-picture"/>
-        </div>
-        <p class="paragraph">
-            After the robot was able to move functionally through the drivers controls, I was able to create an auto that was able to capitalize on the high point potential there. 
+
+        <div class="container-1-3">
+          <div class="picture">
+            <img src="../media/big props.png" alt="Two 3D-printed team props, one blue and one red, each embossed with a lightning bolt and the team number 23367" class="robot-picture"/>
+          </div>
+          <p class="paragraph">
+            After the robot was able to move functionally through the drivers controls, I was able to create an auto that was able to capitalize on the high point potential there.
             However, the largest amount of points came from the ability to utilize vision in the robots. By using tensorflow, I was able to detect where a prop was located and place
             a hexagon tile on that line. By storing that location, I was able to place another tile underneath a specific april tag to get even more points.
-        </p>
-      </div>
-      <div class="button-container">
-        <button class="btn btn-outline-primary" onclick=" window.open('https://www.youtube.com/watch?v=8jQPeQLNaqs','_blank')">Watch the Interview!</button>
-        <button class="btn btn-outline-primary" onclick=" window.open('https://www.canva.com/design/DAGulLTeqic/QALOUvix6Wzycqzp_gijQQ/view?utm_content=DAGulLTeqic&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he33ef2e000#14','_blank')">See the Engineering Notebook!</button>
-      </div>
-      <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ftc">Once released, the code can be found here</a></h3>
+          </p>
+        </div>
+
+        <div class="button-container">
+          <button class="btn btn-outline-primary" onclick=" window.open('https://www.youtube.com/watch?v=8jQPeQLNaqs','_blank')">Watch the Interview!</button>
+          <button class="btn btn-outline-primary" onclick=" window.open('https://www.canva.com/design/DAGulLTeqic/QALOUvix6Wzycqzp_gijQQ/view?utm_content=DAGulLTeqic&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he33ef2e000#14','_blank')">See the Engineering Notebook!</button>
+        </div>
+
+        <h3 style="text-align: center;"><a href="https://gitlab.team195.com/cyberknights/ftc">Once released, the code can be found here</a></h3>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
     </div>
-      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
   </body>
 </html>
