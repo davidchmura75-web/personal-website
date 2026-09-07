@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bottle Rocket Launcher &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="project" data-back="../projects.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
+
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">Bottle Rocket Launcher</h1>
+
+        <div class="project">
+          <p class="project-blurb">
+            A homemade pressurized air cannon controlled by a solenoid and a dead man's switch
+          </p>
+        </div>
+
+        <section class="page-section">
+          <div class="section-split">
+            <div class="section-copy">
+              <h2 class="section-heading">Testing</h2>
+
+              <!-- Placeholder copy. -->
+              <div class="section-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+
+            <!-- preload="metadata" so the clip isn't downloaded until it's played. -->
+            <figure class="section-figure">
+              <video class="section-video" controls preload="metadata">
+                <source src="../media/Bottle_launcher_test2.mp4" type="video/mp4">
+              </video>
+              <figcaption class="media-caption">Caption for the second test.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <div class="section-split">
+            <div class="section-copy">
+              <h2 class="section-heading">The big launch</h2>
+
+              <!-- Placeholder copy. -->
+              <div class="section-text">
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+                  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </p>
+                <p>
+                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+                  qui ratione voluptatem sequi nesciunt.
+                </p>
+              </div>
+            </div>
+
+            <figure class="section-figure">
+              <video class="section-video" controls preload="metadata">
+                <source src="../media/bottle_launcher_big_launch.mp4" type="video/mp4">
+              </video>
+              <figcaption class="media-caption">Caption for the big launch.</figcaption>
+            </figure>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
+    </div>
+  </body>
+</html>

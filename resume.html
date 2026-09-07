@@ -20,23 +20,60 @@
 
     <div class="view">
       <main class="main">
-        <div>
-          Test test sahur
-        </div>
+        <!-- Edit the tagline to suit; the name and links come from PROFILE in main.js. -->
+        <header class="page-head" data-site-head
+          data-tagline="For business and professional inquiries."></header>
 
-        <!-- Drop the file in as media/resume.pdf, or point these two paths elsewhere. -->
+        <!-- Spaces in the filename are encoded as %20 so the path works everywhere. -->
         <section class="pdf-block">
-          <object class="pdf-embed" data="media/resume.pdf" type="application/pdf">
+          <object class="pdf-embed" data="media/Scholarship%20docs.pdf" type="application/pdf">
             <div class="pdf-fallback">
               <p>This PDF can't be shown inline here.</p>
             </div>
           </object>
 
           <p class="pdf-actions">
-            <a class="pdf-download" href="media/resume.pdf" target="_blank" rel="noopener">
+            <a class="pdf-download" href="media/Scholarship%20docs.pdf" target="_blank" rel="noopener">
               Open the PDF in a new tab
             </a>
           </p>
+        </section>
+
+        <section class="portfolio">
+          <h2 class="portfolio-title">Portfolio</h2>
+
+          <!-- Copy an <article> to add more; the grid reflows on its own. -->
+          <div class="portfolio-grid">
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">Tipping Point</h3>
+              <p class="portfolio-item-text">
+                Ping pong balancing system using PID control.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="project pages/TippingPoint.html">See more</a>
+              </p>
+            </article>
+
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">The Gift of Fire</h3>
+              <p class="portfolio-item-text">
+                A game made for Mini Jam 218: Fire, with a limitation of only 3 colors. Playable in the browser.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="project pages/GiftOfFire.html">See more</a>
+              </p>
+            </article>
+
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">Bottle Rocket Launcher</h3>
+              <p class="portfolio-item-text">
+                A homemade pressurized air cannon controlled by a solenoid and a dead man's switch.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="project pages/BottleRocket.html">See more</a>
+              </p>
+            </article>
+          </div>
         </section>
       </main>
 

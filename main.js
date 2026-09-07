@@ -117,8 +117,13 @@
       })
       .join("");
 
+    // Pages that want a line under the name set it via data-tagline. The resume
+    // page uses it to say the page is aimed at employers.
+    var tagline = head.dataset.tagline;
+
     head.innerHTML =
       '<p class="page-name">' + PROFILE.name + "</p>" +
+      (tagline ? '<p class="page-tagline">' + tagline + "</p>" : "") +
       '<div class="page-links">' + links + "</div>";
   }
 

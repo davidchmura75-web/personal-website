@@ -134,6 +134,13 @@ a {
   letter-spacing: -0.01em;
 }
 
+.page-tagline {
+  max-width: 560px;
+  margin: 14px auto 0;
+  font-size: 1.05rem;
+  opacity: 0.8;
+}
+
 .page-links {
   display: flex;
   justify-content: center;
@@ -160,10 +167,84 @@ a {
   height: 30px;
 }
 
+/* --- portfolio area --- */
+
+.portfolio {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.portfolio-title {
+  margin: 0 0 6px;
+  font-size: 1.8rem;
+}
+
+.portfolio-note {
+  margin: 0 0 24px;
+  opacity: 0.75;
+}
+
+/* Reflows on its own as entries are added or removed. */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+/* Unfilled slot: dashed and muted until it holds something real. */
+.portfolio-item.is-empty {
+  background-color: transparent;
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.portfolio-item-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.portfolio-item-title a {
+  color: inherit;
+}
+
+.portfolio-item-text {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* auto top margin pins the link to the bottom, so it lines up across cards
+   whatever length the descriptions are. */
+.portfolio-item-actions {
+  margin: auto 0 0;
+  padding-top: 16px;
+  font-size: 0.95rem;
+}
+
 /* Page headings sit above centered content on every page that uses them. */
 .title_block {
   text-align: center;
   margin-bottom: 8px;
+}
+
+/* Little divider bar between a robot page's title and the write-up below it. */
+body[data-page="robot"] .title_block::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 16px auto 0;
+  background-color: currentColor;
+  opacity: 0.35;
 }
 
 /* --- embedded PDF --- */
@@ -197,7 +278,8 @@ a {
   text-align: center;
 }
 
-.pdf-download {
+.pdf-download,
+.text-link {
   color: inherit;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
@@ -206,9 +288,180 @@ a {
 }
 
 .pdf-download:hover,
-.pdf-download:focus-visible {
+.pdf-download:focus-visible,
+.text-link:hover,
+.text-link:focus-visible {
   opacity: 1;
   outline: none;
+}
+
+/* Sits in the same grid slots as .robot-picture, so it scales the same way. */
+.robot-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #000;
+}
+
+/* Wrapper for a video or image plus its caption, in a page's media slot. */
+.media-figure {
+  margin: 0;
+}
+
+.media-caption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* --- embedded third-party frame (Desmos, and anything similar) --- */
+
+.embed-block {
+  margin-top: 40px;
+}
+
+.embed-title,
+.section-heading {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* --- plain content sections: notes, credits, and the like --- */
+
+.page-section {
+  margin-top: 48px;
+}
+
+/* Prose reads left-aligned, but the column stays centered on the page. */
+.section-text {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.section-text p {
+  margin: 0;
+}
+
+.section-text p + p {
+  margin-top: 20px;
+}
+
+.section-figure {
+  margin: 28px 0;
+}
+
+/* Prose and media side by side. Stacks below 1080px, where two columns would
+   leave both too narrow to read or watch. */
+.section-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+/* Both children are centred blocks on their own, so drop that inside the grid. */
+.section-split .section-text {
+  max-width: none;
+  margin: 0;
+}
+
+.section-split .section-figure {
+  margin: 0;
+}
+
+/* The heading sits inside the copy column, so it centres over the text rather
+   than over the whole two-column row. */
+.section-copy .section-heading {
+  margin-bottom: 12px;
+}
+
+/* Held well short of the column width so the clip doesn't dominate the row. */
+.section-split .section-video {
+  max-width: 420px;
+}
+
+@media screen and (max-width: 1080px) {
+  .section-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Wider than .section-text so tables and diagrams stay legible. */
+.section-image,
+.section-video {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+}
+
+/* White backing keeps dark text readable if the image has transparency. */
+.section-image {
+  background-color: #fff;
+}
+
+.section-video {
+  background-color: #000;
+}
+
+.credits-list {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.credits-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.credits-list li + li {
+  border-top: 1px solid var(--rule);
+}
+
+.credit-name {
+  font-weight: 700;
+}
+
+.credit-role {
+  opacity: 0.75;
+}
+
+.embed-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 340px;
+  background-color: var(--thumb-bg);
+  border: 1px solid var(--rule);
+}
+
+/* Godot web builds render into a canvas that fills the frame. */
+.game-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border: 1px solid var(--rule);
+}
+
+/* Google Slides decks are 16:9 by default, unlike the 4:3 above. */
+.embed-frame.is-wide {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.embed-actions {
+  margin: 16px 0 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 1080px) {

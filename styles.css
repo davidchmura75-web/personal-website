@@ -68,6 +68,17 @@
   text-align: center;
 }
 
+/* On a detail page the blurb sits alone, so the padding and margin that spaced
+   it away from the media below become a dead gap. Collapses on its own again if
+   media is added back. */
+.project:has(> .project-blurb:only-child) {
+  padding: 8px 0 0;
+}
+
+.project-blurb:only-child {
+  margin-bottom: 0;
+}
+
 /* Hairline only between stacked projects, so a lone project page shows none. */
 .project + .project {
   border-top: 1px solid var(--rule);
@@ -115,11 +126,38 @@
   letter-spacing: 0.02em;
 }
 
+/* Sit where .video-placeholder does, so they keep the same width and centering. */
+.project-video,
+.project-image {
+  display: block;
+  width: 100%;
+  max-width: 646px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+}
+
+.project-video {
+  background-color: #000;
+}
+
+/* Only needs separating when it follows other media in the same block. */
+.project-video + .project-image {
+  margin-top: 20px;
+}
+
 .project-actions {
   margin: 24px 0 0;
 }
 
-.see-more {
+/* Inherits centering from .project, so a standalone one needs it set. */
+.project-actions.is-centered {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.see-more,
+.button-link {
   display: inline-block;
   padding: 10px 24px;
   color: inherit;
@@ -129,7 +167,9 @@
 }
 
 .see-more:hover,
-.see-more:focus-visible {
+.see-more:focus-visible,
+.button-link:hover,
+.button-link:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
   outline: none;

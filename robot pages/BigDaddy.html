@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Big Daddy &mdash; John Doe</title>
+    <meta name="author" content="John Doe">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="robot-styles.css">
+    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="robot" data-back="../robots.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
+
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">Big Daddy</h1>
+        <div class="container-1-3">
+          <div class="picture">
+            <img src="../media/big daddy.jpeg" alt="Big Daddy on the competition field, its clear hopper full of yellow game balls above a red 195 bumper" class="robot-picture"/>
+          </div>
+          <p class="paragraph">
+            Big Daddy is the name of our robot for the 2026 FRC Season game Rebuilt, where the goal is to
+            shoot yellow balls called fuel into a hub while it is active. During this season, I led the software
+            team, helped teach the underclassmen, and stayed in the pit to fix emergency errors.
+          </p>
+        </div>
+
+        <div class="container-2-2">
+          <p class="paragraph">
+            Some of my favorite things I developed for this season were a virtual field and robot to test autonomous routines in,
+            unique logic for automatically aiming towards the goal and shooting at power determined through a map we tuned over 5 times throughout the season,
+            creating auto paths, creating a dashboard that displays whether the robot is allowed to shoot in the hub, but my favorite part is the shoot on the move logic.
+            I was able to implement time of flight recursion using Newton's method to allow the robot to shoot accurately while moving. The desmos graph to the right visualizes the logic. 
+          </p>
+          <div class="picture">
+            <iframe
+              class="embed-frame"
+              src="https://www.desmos.com/calculator/ier2k30jsb?embed"
+              title="Desmos graph for Big Daddy"
+              loading="lazy"
+              allowfullscreen></iframe>
+            <p class="embed-actions">
+              <a class="text-link" href="https://www.desmos.com/calculator/ier2k30jsb" target="_blank" rel="noopener">
+                Open the graph on Desmos
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="container-2-2">
+          <div class="picture">
+            <figure class="media-figure">
+              <video class="robot-video" controls>
+                <source src="../media/big_daddy_auto.mp4" type="video/mp4">
+              </video>
+              <figcaption class="media-caption">An autonomous video from early on in the season</figcaption>
+            </figure>
+          </div>
+          <p class="paragraph">
+            During this season, I learned a lot. I improved in both python and c++,
+            I learned how to implement new code using existing ROS infrastructure, and I learned how to troubleshoot more effectively.
+            However, my most important takeaways were from leadership. I learned that good leaders should have clear communication, so I ran a weekly announcement
+            to all of the programming kids to let them know when to show up and what is happening on the team. Overall, the season was a lot of fun, 
+            and also a big learning experience, and I am excited to make more robots in the future. To see more information, see me explain the robot at the watch interview link below.
+          </p>
+        </div>
+
+        <!-- ?t=260 starts the video at 4:20, where the interview begins. -->
+        <div class="button-container">
+          <a class="btn btn-outline-primary" href="https://youtu.be/Wqm1B6pDzk4?t=260" target="_blank" rel="noopener">
+            Watch Interview
+          </a>
+          <a class="btn btn-outline-primary" href="https://gitlab.team195.com/cyberknights/ros2/robots/2026_robot" target="_blank" rel="noopener">
+            See the Code!
+          </a>
+        </div>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 John Doe</span>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>

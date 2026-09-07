@@ -26,18 +26,68 @@
 
         <div class="project">
           <p class="project-blurb">
-            A game made for Mini Game Jam 218: Fire, with a limitation of only 3 colors
+            A game made for Mini Jam 218: Fire, with a limitation of only 3 colors
           </p>
-          <div class="video-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M10 8.5l6 3.5-6 3.5z"></path>
-            </svg>
-            <span>Video coming soon</span>
-          </div>
         </div>
 
-        <!-- Write-up goes here. -->
+        <section class="page-section">
+          <h2 class="section-heading">Play in browser</h2>
+          <!-- The Godot 4.3 web export. Exported without Thread Support, so it
+               needs no cross-origin isolation headers to run. -->
+          <iframe
+            class="game-frame"
+            src="../games/gift-of-fire/Mini_Jam_218/index.html"
+            title="The Gift of Fire"
+            allow="autoplay; fullscreen; gamepad"
+            allowfullscreen></iframe>
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Notes</h2>
+          <div class="section-text">
+            <p>
+              At the time of this game jam, I had a lot of background in programming and playing video games, but not as much in making them.
+            </p>
+            <p>
+              To start to fix this, I decided to join this game jam as a solo developer. To start, I brainstormed different ideas and put the best ones I had onto a decision matrix.
+            </p>
+            <p>
+              I then evaluated the different ideas and asked another unbiased person for their input. I eventually ended up going with a simple idea that scored the highest on the matrix, prioritizing being able to execute the game in three days.
+            </p>
+          </div>
+
+          <figure class="section-figure">
+            <img class="section-image" src="../media/decision_matrix_GOF.png"
+              alt="Decision matrix scoring six game concepts from 6 (good) down to 1 (bad) on enjoyment, concept, and presentation. Prometheus totals 15 and ranks first, House Burned 14 second, and Wildfires 12 third." />
+            <figcaption class="media-caption">
+              The matrix used to rank the six concepts, scored 6 for good down to 1 for bad. Prometheus came out on top, and became The Gift of Fire.
+            </figcaption>
+          </figure>
+
+          <div class="section-text">
+            <p>
+              After I decided what to do, I verified that the concept was able to work with the limitation and moved on to the development process.
+            </p>
+            <p>
+              I planned out more advanced requirements and things I would want from the game, and ended up creating some prototypes for movement.
+            </p>
+            <p>
+              Throughout this process I did numerous things I was not fully comfortable with. I created my own art, designed my own game, gameplay, and menu, and created the soundtrack.
+            </p>
+            <p>
+              After the jam coding window was over, I looked through and rated some of the other games, noting what made the top games so good. After the jam rating period ended, I got my results back, and got 86th out of the 127 entries.
+            </p>
+            <p>
+              Although this doesn't seem like a very high score, for my first game, I was more than happy with that result, and the new knowledge and skills I gained along the way. I look forwards to doing more game jams in the future with more experience under my belt.
+            </p>
+          </div>
+        </section>
+
+        <p class="project-actions is-centered">
+          <a class="button-link" href="https://ternary348.itch.io/gift-of-fire" target="_blank" rel="noopener">
+            Play the game on itch.io
+          </a>
+        </p>
       </main>
 
       <footer class="foot">
