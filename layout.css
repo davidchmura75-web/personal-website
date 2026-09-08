@@ -377,8 +377,11 @@ body[data-page="robot"] .title_block::after {
   margin-bottom: 12px;
 }
 
-/* Held well short of the column width so the clip doesn't dominate the row. */
-.section-split .section-video {
+/* Held well short of the column width so the clip doesn't dominate the row.
+   The placeholder is capped to match, so slots line up before and after a
+   real video goes in. */
+.section-split .section-video,
+.section-split .video-placeholder {
   max-width: 420px;
 }
 

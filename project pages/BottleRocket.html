@@ -33,17 +33,48 @@
         <section class="page-section">
           <div class="section-split">
             <div class="section-copy">
-              <h2 class="section-heading">Testing</h2>
+              <h2 class="section-heading">Origin</h2>
 
               <!-- Placeholder copy. -->
               <div class="section-text">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  The rocket launcher started off as a contraption my dad made for my 8th birthday. It consisted of one long pipe,
+                  some zip ties, and a metal clamp ring to hold down a 2 liter bottle, filled about a third of the way with water. The bottle would be held down by a user and someone would attach the air compressor.
+                  Once the bottle was ready to launch, the person holding the zip ties would let go. It worked well enough for it's purpose so the project was left untouched for a while.
                 </p>
                 <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Once I got to high school, I volunteered at a STEM awareness event geared towards younger kids, and wanted to bring this bottle rocket launcher.
+                  Unfortunately, the launcher had a few issues that needed to be fixed before we bring it to this all day event. Firstly, it was a pain to connect and unconnect the air compressor repeatedly. 
+                  Additionally, the zip ties were difficult to hold onto, and lastly, this made it hard to add water into the bottle without some leaking into the air pump.
+                </p>
+              </div>
+            </div>
+
+            <!-- Swap for a <video class="section-video" controls preload="metadata"> when
+                 there's a clip for this section. -->
+            <div class="video-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M10 8.5l6 3.5-6 3.5z"></path>
+              </svg>
+              <span>Video coming soon</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <div class="section-split">
+            <div class="section-copy">
+              <h2 class="section-heading">Development</h2>
+
+              <!-- Placeholder copy. -->
+              <div class="section-text">
+                <p>
+                  To start fix these issues, me and my dad focused on the launching mechanism first. Originally, we were going to go with a claw in order to hold the bottle, however we found that by adding a solenoid valve in the pipe,
+                  we could trigger the launch without any contact. Additionally, we created an air reservoir to hold extra air, allowing the hose to stay connected and the air compressor to stay water free. This let us launch over 20 bottles in a row while having consistent air pressure.
+                </p>
+                <p>
+                  We hooked up all of these components to an esp32 controller, and planned the launch mechanism to be a remote button. However, with some difficulties and an impending deadline, we improvised a dead man's switch style launcher to have maximum control over the airflow. It was now time for testing.
                 </p>
               </div>
             </div>
@@ -61,17 +92,19 @@
         <section class="page-section">
           <div class="section-split">
             <div class="section-copy">
-              <h2 class="section-heading">The big launch</h2>
+              <h2 class="section-heading">Testing and Execution</h2>
 
               <!-- Placeholder copy. -->
               <div class="section-text">
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  We tested this product in stages, checking for leaks in the air reservoir by using soapy water that would form bubbles if the air leaked. 
+                  We then checked if the solenoid valve opened and closed, and then after we were sure of no leaks, we tested launches. 
+                  We got the machine to work, found a good way to launch the bottles, and began transporting it to the event.
                 </p>
                 <p>
-                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-                  qui ratione voluptatem sequi nesciunt.
+                  At the event, I was going to run the rocket launcher with some other kids who didn't know too much about the project. Luckily it was easy to explain and we were able to get launching in no time.
+                  However, one hour in, the air compressor we brought turned off. I waws able to find another air compressor from another person helping the event and get up and running. Then another hour in, the pvc cap connecting the air compressor to the reservoir shattered.
+                  However, I was able to get a new one created and end the day with some good launches with the bottle rocket launcher.
                 </p>
               </div>
             </div>
@@ -82,6 +115,19 @@
               </video>
               <figcaption class="media-caption">Caption for the big launch.</figcaption>
             </figure>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Reflection</h2>
+
+          <!-- Placeholder copy. Add another <p> for each further paragraph. -->
+          <div class="section-text">
+            <p>
+              Although this overview of the project makes the design process easy, it took a lot of hard work and late nights to get these components to work together, and I think that is my biggest takeaway.
+              Challeneges are a part of the process. Almost nothing is going to work on the first try, but the difference between successful projects and failed ones is whether these challenges are overcome.
+              So, despite all the challenges I had during the creation and execution of this product, I consider this project a success.
+            </p>
           </div>
         </section>
       </main>
