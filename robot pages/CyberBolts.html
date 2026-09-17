@@ -7,10 +7,8 @@
     <meta name="author" content="David Chmura">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="robot-styles.css">
-    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="../layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -27,7 +25,7 @@
 
         <div class="container-1-3">
           <div class="picture">
-            <img src="../media/23367 robot.png" alt="CyberBolts, a compact FTC robot with an aluminium frame and purple and yellow hexagonal intake wheels" class="robot-picture"/>
+            <img src="../media/23367 robot.png" alt="Our CyberBolts robot" class="robot-picture"/>
           </div>
           <p class="paragraph">
             CyberBolts was the FTC team I was on in tenth grade. For the game, CenterStage, we went through an iterative design process. As a team member, I helped brainstorm an idea originally,
@@ -44,13 +42,13 @@
             during the driver-controlled period.
           </p>
           <div class="picture">
-            <img src="../media/Controls.png" alt="Annotated diagram of two gamepads, one labelled Drive Base Controls and one labelled Operator Controls, with callouts naming the function of each stick and button" class="robot-picture"/>
+            <img src="../media/Controls.png" alt="The gamepad control layout I mapped out" class="robot-picture"/>
           </div>
         </div>
 
         <div class="container-1-3">
           <div class="picture">
-            <img src="../media/big props.png" alt="Two 3D-printed team props, one blue and one red, each embossed with a lightning bolt and the team number 23367" class="robot-picture"/>
+            <img src="../media/big props.png" alt="The 3D printed team props" class="robot-picture"/>
           </div>
           <p class="paragraph">
             After the robot was able to move functionally through the driver controls, I was able to create an auto that was able to capitalize on the high point potential there.

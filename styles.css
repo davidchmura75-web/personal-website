@@ -1,7 +1,3 @@
-/*
- * Custom CSS
- */
-
 :root {
   --bs-body-bg: var(--bs-gray-100);
 }
@@ -24,8 +20,6 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
-/* Fixed height keeps every tile in a row aligned; `contain` means the cutouts
-   and the wide dashboard screenshot are shown whole instead of being cropped. */
 .robot-card .card-img-top {
   width: 100%;
   height: 220px;
@@ -44,8 +38,6 @@
   font-size: 1.15rem;
 }
 
-/* The title carries the stretched-link, so the whole card is clickable while
-   the link still has real text for screen readers. */
 .robot-card .card-title a {
   color: inherit;
   text-decoration: none;
@@ -68,9 +60,6 @@
   text-align: center;
 }
 
-/* On a detail page the blurb sits alone, so the padding and margin that spaced
-   it away from the media below become a dead gap. Collapses on its own again if
-   media is added back. */
 .project:has(> .project-blurb:only-child) {
   padding: 8px 0 0;
 }
@@ -95,33 +84,6 @@
   opacity: 0.8;
 }
 
-/* Stand-in for the embed that will eventually live here. */
-.video-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  max-width: 646px;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  background-color: var(--thumb-bg);
-  border: 1px dashed var(--rule);
-  opacity: 0.75;
-}
-
-.video-placeholder svg {
-  width: 54px;
-  height: 54px;
-}
-
-.video-placeholder span {
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-}
-
-/* Sit where .video-placeholder does, so they keep the same width and centering. */
 .project-video,
 .project-image {
   display: block;
@@ -136,7 +98,6 @@
   background-color: #000;
 }
 
-/* Only needs separating when it follows other media in the same block. */
 .project-video + .project-image {
   margin-top: 20px;
 }
@@ -145,7 +106,6 @@
   margin: 24px 0 0;
 }
 
-/* Inherits centering from .project, so a standalone one needs it set. */
 .project-actions.is-centered {
   margin-top: 40px;
   text-align: center;
@@ -170,7 +130,6 @@
   outline: none;
 }
 
-/* Section shortcuts in the rail scroll to these, so keep them clear of the top. */
 .project {
   scroll-margin-top: 24px;
 }

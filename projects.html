@@ -7,10 +7,8 @@
     <meta name="author" content="David Chmura">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -32,7 +30,7 @@
               Ping pong balancing system using PID control
             </p>
             <img class="project-image" src="media/TippingPointPicture.png"
-              alt="The Tipping Point balancer on a table: a white ping pong ball resting on a horizontal beam, tilted by a 3D-printed linkage arm on the left and a curved grey upright on the right, with wiring running down to the base" />
+              alt="The balancer holding a ball on the beam" />
             <p class="project-actions">
               <a class="see-more" href="project pages/TippingPoint.html">See more</a>
             </p>
@@ -40,12 +38,11 @@
 
           <article class="project" id="sheep-herder">
             <h2 class="project-title">Sheep Herder</h2>
-            <!-- Placeholder blurb. -->
             <p class="project-blurb">
-              A game about herding sheep
+              Sokoban-style puzzle game, built with my roommate in a three hour jam
             </p>
             <img class="project-image" src="media/sheepThumbnail.png"
-              alt="Sheep Herder title card: pixel art on a green field showing two sheep trailing dotted paths, a red and white barn, stacked haybales, and a shepherd holding a crook" />
+              alt="Sheep Herder title card" />
             <p class="project-actions">
               <a class="see-more" href="project pages/SheepHerder.html">See more</a>
             </p>
@@ -56,13 +53,9 @@
             <p class="project-blurb">
               A homemade pressurized air cannon controlled by a solenoid and a dead man's switch
             </p>
-            <div class="video-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M10 8.5l6 3.5-6 3.5z"></path>
-              </svg>
-              <span>Video coming soon</span>
-            </div>
+            <video class="project-video" controls preload="metadata">
+              <source src="media/Bottle_launcher_test1.mp4" type="video/mp4">
+            </video>
             <p class="project-actions">
               <a class="see-more" href="project pages/BottleRocket.html">See more</a>
             </p>
@@ -71,10 +64,10 @@
           <article class="project" id="gift-of-fire">
             <h2 class="project-title">The Gift of Fire</h2>
             <p class="project-blurb">
-              A game made for Mini Jam 218: Fire, with a limitation of only 3 colors
+              Made solo for Mini Jam 218: Fire, limited to three colors
             </p>
             <img class="project-image" src="media/GiftOfFireThumbnail.png"
-              alt="The Gift of Fire title card: hand-drawn stick figures on an olive background, one wearing a laurel wreath and carrying a lit torch while an angry figure stands on a cloud above" />
+              alt="The Gift of Fire title card" />
             <p class="project-actions">
               <a class="see-more" href="project pages/GiftOfFire.html">See more</a>
             </p>

@@ -7,10 +7,8 @@
     <meta name="author" content="David Chmura">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -27,7 +25,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/big daddy.jpeg" class="card-img-top"
-                alt="Big Daddy on the competition field, its clear hopper full of yellow game balls above a red 195 bumper" />
+                alt="Big Daddy on the field with a full hopper" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/BigDaddy.html">Big Daddy</a>
@@ -41,7 +39,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/knightquil.jpg" class="card-img-top"
-                alt="KnightQuil, team 195's FRC robot, standing in the workshop with purple LED strips lighting its tall elevator above black 195 bumpers" />
+                alt="KnightQuil in the shop" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/Knightquil.html">KnightQuil</a>
@@ -55,7 +53,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/toppy view.png" class="card-img-top"
-                alt="Top-down view of CyberSurge showing its blue aluminium frame, mecanum wheels, linear slides, and yellow intake" />
+                alt="CyberSurge from above" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/CyberSurge.html">CyberSurge - 2024/2025</a>
@@ -69,7 +67,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/kinightshiftphoto_clear.png" class="card-img-top"
-                alt="KnightShift: Overtime on red 195 bumpers, showing its blue flywheels, orange intake roller, and chain-driven arm" />
+                alt="KnightShift: Overtime with its shooter and intake" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/KnightShift.html">KnightShift: Overtime</a>
@@ -83,7 +81,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/23367 robot.png" class="card-img-top"
-                alt="CyberBolts, a compact FTC robot with an aluminium frame and purple and yellow hexagonal intake wheels" />
+                alt="Our CyberBolts robot" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/CyberBolts.html">CyberBolts - 2023/2024</a>
@@ -97,7 +95,7 @@
           <div class="col">
             <div class="card robot-card">
               <img src="./media/Loaded Dashboard.png" class="card-img-top"
-                alt="The CyberSquire dashboard, showing robot status readouts, an autonomous path preview over the field map, and a robot warnings panel" />
+                alt="The CyberSquire dashboard" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a class="stretched-link" href="robot pages/CyberSquire.html">The CyberSquire</a>

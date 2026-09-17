@@ -6,10 +6,8 @@
     <title>Tipping Point &mdash; David Chmura</title>
     <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="../styles.css">
-    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="../layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -32,7 +30,6 @@
 
         <section class="page-section">
           <h2 class="section-heading">Notes</h2>
-          <!-- Placeholder copy. -->
           <p class="section-text">
             Tipping Point USA is not to be confused with "Turning Point USA", the political organization. This is a project I 
             decided to make because I learned about PID controllers and wanted to make a live demo for these systems. 
@@ -47,11 +44,6 @@
         <section class="embed-block">
           <h2 class="embed-title">Slides</h2>
 
-          <!--
-            The /embed form of the deck's own file ID. This renders because the
-            deck is shared as "anyone with the link can view" - if that sharing is
-            ever turned off, visitors get a sign-in wall instead of the slides.
-          -->
           <iframe
             class="embed-frame is-wide"
             src="https://docs.google.com/presentation/d/1gPwdfy8CdugERsWnxiTIeV8nViubkOYihYbc46tuM2E/embed?start=false&amp;loop=false&amp;delayms=3000"
@@ -65,20 +57,6 @@
           </p>
         </section>
 
-        <section class="page-section">
-          <h2 class="section-heading">Credits</h2>
-          <!-- Placeholder names. -->
-          <ul class="credits-list">
-            <li>
-              <span class="credit-name">Jane Doe</span>
-              <span class="credit-role">Video editing</span>
-            </li>
-            <li>
-              <span class="credit-name">Richard Roe</span>
-              <span class="credit-role">Project help</span>
-            </li>
-          </ul>
-        </section>
       </main>
 
       <footer class="foot">

@@ -6,10 +6,8 @@
     <title>Sheep Herder &mdash; David Chmura</title>
     <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="../styles.css">
-    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="../layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -25,7 +23,6 @@
         <h1 class="title_block">Sheep Herder</h1>
 
         <div class="project">
-          <!-- Placeholder blurb. -->
           <p class="project-blurb">
             A Sokoban style game about herding sheep
           </p>
@@ -33,9 +30,6 @@
 
         <section class="page-section">
           <h2 class="section-heading">Play in browser</h2>
-          <!-- Points at the web export in games/sheep-herder/. Export without
-               Thread Support, like Gift of Fire, so it needs no cross-origin
-               isolation headers to run. -->
           <iframe
             class="game-frame"
             data-game-frame
@@ -44,9 +38,6 @@
             allow="autoplay; fullscreen; gamepad"
             allowfullscreen></iframe>
 
-          <!-- Driven by main.js, which posts to the frame. The game's own page
-               routes its audio through a master gain node that listens for
-               those messages. -->
           <div class="audio-controls" data-game-audio>
             <button class="audio-toggle" type="button" data-game-mute aria-pressed="false">
               Mute
@@ -64,7 +55,7 @@
 
           <figure class="section-figure">
             <img class="section-image" src="../media/sheep_game_2.png"
-              alt="Level 7 open in the Godot editor: a fenced pen on a green tile grid holding sheep, a barn, and the player sprite, with the scene tree on the left and a tile palette listing player, sheep, and haybale below." />
+              alt="Level 7 in the Godot editor" />
             <figcaption class="media-caption">
               A level under construction in the Godot editor. 
             </figcaption>
@@ -75,7 +66,6 @@
         <section class="page-section">
           <h2 class="section-heading">Notes</h2>
 
-          <!-- Placeholder copy. Add another <p> for each further paragraph. -->
           <div class="section-text">
             <p>
               Sheep was the theme of a game jam I looked into one weekend, and I landed on this three-hour jam.
@@ -104,7 +94,7 @@
 
           <figure class="section-figure">
             <img class="section-image" src="../media/sheep_game_3.png"
-              alt="Jam results for Sheep Herder by Ternary348: ranked 5th with 9 ratings and a score of 3.889. Gameplay ranked 1st at 4.444, theme fit 3rd at 4.556, overall 5th at 3.889, audio 14th at 2.889, and visuals 23rd at 2.556." />
+              alt="Jam results: 5th overall and 1st in gameplay" />
             <figcaption class="media-caption">
               5th overall out of the rated entries, and 1st on gameplay.
             </figcaption>

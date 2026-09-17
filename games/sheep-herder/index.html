@@ -90,12 +90,7 @@ body {
 	z-index: 1;
 }
 		</style>
-		<!-- Added by hand for the site embed, and NOT part of the Godot export: a
-		     re-export overwrites this file, so paste this block back in afterwards.
-		     It wraps AudioContext so every context the engine creates plays through
-		     a master gain node, then lets the embedding page set that gain over
-		     postMessage. Must run before shepherd.js, which builds the audio
-		     driver. -->
+		<!-- master volume hook for the site embed; re-add after any Godot re-export -->
 		<script>
 (function () {
 	const Native = window.AudioContext || window.webkitAudioContext;
@@ -119,12 +114,8 @@ body {
 		const output = ctx.destination;
 		const gain = ctx.createGain();
 		gain.connect(output);
-		// The driver reads the channel counts off whatever it's handed, and a
-		// GainNode carries no maxChannelCount of its own.
 		gain.maxChannelCount = output.maxChannelCount;
 		gain.gain.value = muted ? 0 : volume;
-		// Handed out in place of the real destination, so anything the engine
-		// connects downstream lands on the gain node instead.
 		Object.defineProperty(ctx, 'destination', {
 			get: function () {
 				return gain;
@@ -140,8 +131,6 @@ body {
 		window.webkitAudioContext = Patched;
 	}
 
-	// Only volume and mute are read off the message, so an unexpected sender
-	// can't do anything here beyond changing how loud the game is.
 	window.addEventListener('message', function (event) {
 		const data = event.data;
 		if (!data || data.type !== 'game-audio') {

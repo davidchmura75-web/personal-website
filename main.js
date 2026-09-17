@@ -1,6 +1,3 @@
-// Builds the two side rails and drives the theme toggle. Every page carries a
-// `data-page` attribute on <body>; everything else is derived from that here so
-// the nav only has to be maintained in one place.
 (function () {
   var ICONS = {
     back: '<path d="M19.5 12h-15"></path><path d="m11 19-7-7 7-7"></path>',
@@ -28,9 +25,6 @@
       '<circle cx="12" cy="9" r="1.5"></circle>' +
       '<path d="M9.2 15.2 6.5 17l.5 4 3-2"></path>' +
       '<path d="M14.8 15.2 17.5 17l-.5 4-3-2"></path>',
-    // A scalloped fleece, then a round head over its right edge, so the shape
-    // reads as a sheep facing right. The eye is a zero-length segment: the round
-    // linecap on the wrapper turns it into a dot.
     sheep:
       '<path d="M14.2 9.4a2.3 2.3 0 0 0-3.5-1.5 2.4 2.4 0 0 0-4 1.3 2.4 2.4 0 0 0-2 3.9' +
       ' 2.6 2.6 0 0 0 2.2 3.6c2.4 0 4.6-.4 6-1.2"></path>' +
@@ -45,9 +39,6 @@
       'M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"></path>'
   };
 
-  // Brand marks are solid rather than stroked, so they get their own markup.
-  // Kept on single lines: splitting a path across concatenated strings drops the
-  // spaces between commands and silently garbles the shape.
   var SOLID_ICONS = {
     github:
       '<path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.92 1.23 3.23 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"></path>',
@@ -66,8 +57,7 @@
       '<path d="M2 8.2V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.2l-9.51 5.33a1 1 0 0 1-.98 0L2 8.2z"></path>'
   };
 
-  // The name and links at the top of the home page card. Only index.html has the
-  // [data-site-head] placeholder, so this renders nowhere else.
+  // shown on the home + resume headers
   var PROFILE = {
     name: "David Chmura",
     links: [
@@ -81,15 +71,13 @@
     ]
   };
 
-  // The three destinations, shown in rail order on the home page only.
   var PAGES = [
     { id: "resume", href: "resume.html", label: "Resume" },
     { id: "robots", href: "robots.html", label: "Robots" },
     { id: "projects", href: "projects.html", label: "Projects" }
   ];
 
-  // Extra rail entries that jump to sections further down a specific page. Keyed
-  // by the page's data-page value, and appended after its Back link.
+  // jump links added to the rail, per page
   var PAGE_SECTIONS = {
     projects: [
       { href: "#tipping-point", label: "Tipping Point", icon: "balance" },
@@ -140,8 +128,6 @@
       })
       .join("");
 
-    // Pages that want a line under the name set it via data-tagline. The resume
-    // page uses it to say the page is aimed at employers.
     var tagline = head.dataset.tagline;
 
     head.innerHTML =
@@ -156,13 +142,9 @@
 
     var current = document.body.dataset.page;
     var items;
-
     if (current === "home") {
-      // The home page lists all three destinations.
       items = PAGES;
     } else {
-      // Everywhere else: a single Back link to the parent named by data-back,
-      // followed by any section shortcuts the page declares.
       items = [
         {
           id: "back",
@@ -218,10 +200,7 @@
     sync();
   }
 
-  // Mute and volume for an embedded game. The game's own page routes its audio
-  // through a master gain node and listens for these messages, so the controls
-  // here only have to post to the frame. Runs only on pages that ship both the
-  // frame and the controls.
+  // volume controls talk to the game iframe over postMessage
   function buildGameAudio() {
     var controls = document.querySelector("[data-game-audio]");
     var frame = document.querySelector("[data-game-frame]");
@@ -232,8 +211,6 @@
 
     function post() {
       if (!frame.contentWindow) return;
-      // "*" rather than an origin: the payload is a volume level, and the page
-      // is also opened straight off disk, where the origin is null.
       frame.contentWindow.postMessage(
         {
           type: "game-audio",
@@ -252,9 +229,6 @@
     });
 
     slider.addEventListener("input", post);
-
-    // The frame gets a fresh window on every load, so the current settings have
-    // to be sent again once the game is back up.
     frame.addEventListener("load", post);
   }
 

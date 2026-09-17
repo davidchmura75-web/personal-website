@@ -7,7 +7,6 @@
     <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -20,15 +19,9 @@
 
     <div class="view">
       <main class="main">
-        <!-- 1. Name, one-liner, social links. The name and links come from PROFILE
-             in main.js; only the tagline is set here. Keep it to one line: what you
-             do, and what you build. -->
         <header class="page-head" data-site-head
           data-tagline="A passionate student who creates robots and codes games."></header>
 
-        <!-- 2. The blurb. Three or four sentences, no more: who you are, what you
-             like working on, and one thing that makes you you. Anything longer
-             belongs on the page for the thing it's about. -->
         <section class="page-section">
           <h2 class="section-heading">About me</h2>
 
@@ -50,9 +43,6 @@
           </div>
         </section>
 
-        <!-- 3. Three standouts, one per area, each linking to its own page. The
-             rails already cover Robots, Projects, and Resume, so point these at
-             specific work instead. Copy an <article> to add more; the grid reflows. -->
         <section class="portfolio">
           <h2 class="portfolio-title">Highlights</h2>
 
@@ -60,7 +50,7 @@
             <article class="portfolio-item">
               <h3 class="portfolio-item-title">KnightQuil</h3>
               <p class="portfolio-item-text">
-                Placeholder line about this robot and the season it competed in.
+                Our team's robot for the FRC game Reefscape.
               </p>
               <p class="portfolio-item-actions">
                 <a class="text-link" href="robot pages/Knightquil.html">See more</a>
@@ -80,7 +70,7 @@
             <article class="portfolio-item">
               <h3 class="portfolio-item-title">Sheep Herder</h3>
               <p class="portfolio-item-text">
-                A game about herding sheep.
+                Sokoban-style puzzle game from a three hour jam.
               </p>
               <p class="portfolio-item-actions">
                 <a class="text-link" href="project pages/SheepHerder.html">See more</a>
@@ -98,12 +88,6 @@
             </article>
           </div>
         </section>
-
-        <!-- 4. One line out. The icons up top already carry the links, so this is
-             just a nudge for anyone who scrolled to the bottom. -->
-        <p class="embed-actions">
-          <a class="text-link" href="mailto:davidchmura75@gmail.com">Get in touch</a>
-        </p>
       </main>
 
       <footer class="foot">

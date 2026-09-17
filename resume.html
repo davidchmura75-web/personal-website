@@ -7,7 +7,6 @@
     <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -20,20 +19,18 @@
 
     <div class="view">
       <main class="main">
-        <!-- Edit the tagline to suit; the name and links come from PROFILE in main.js. -->
         <header class="page-head" data-site-head
           data-tagline="For business and professional inquiries."></header>
 
-        <!-- Spaces in the filename are encoded as %20 so the path works everywhere. -->
         <section class="pdf-block">
-          <object class="pdf-embed" data="media/Scholarship%20docs.pdf" type="application/pdf">
+          <object class="pdf-embed" data="media/David%20Chmura%20Resume.pdf" type="application/pdf">
             <div class="pdf-fallback">
               <p>This PDF can't be shown inline here.</p>
             </div>
           </object>
 
           <p class="pdf-actions">
-            <a class="pdf-download" href="media/Scholarship%20docs.pdf" target="_blank" rel="noopener">
+            <a class="pdf-download" href="media/David%20Chmura%20Resume.pdf" target="_blank" rel="noopener">
               Open the PDF in a new tab
             </a>
           </p>
@@ -42,8 +39,6 @@
         <section class="portfolio">
           <h2 class="portfolio-title">Portfolio</h2>
 
-          <!-- Every project and robot on the site, one tag each. Add a tag when a
-               new page goes up so nothing here goes stale. -->
           <p class="tag-group-label">Projects</p>
           <div class="tag-list">
             <a class="tag" href="project pages/TippingPoint.html">Tipping Point</a>

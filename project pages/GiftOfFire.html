@@ -6,10 +6,8 @@
     <title>The Gift of Fire &mdash; David Chmura</title>
     <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="../styles.css">
-    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="../layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -32,8 +30,6 @@
 
         <section class="page-section">
           <h2 class="section-heading">Play in browser</h2>
-          <!-- The Godot 4.3 web export. Exported without Thread Support, so it
-               needs no cross-origin isolation headers to run. -->
           <iframe
             class="game-frame"
             src="../games/gift-of-fire/Mini_Jam_218/index.html"
@@ -58,7 +54,7 @@
 
           <figure class="section-figure">
             <img class="section-image" src="../media/decision_matrix_GOF.png"
-              alt="Decision matrix scoring six game concepts from 6 (good) down to 1 (bad) on enjoyment, concept, and presentation. Prometheus totals 15 and ranks first, House Burned 14 second, and Wildfires 12 third." />
+              alt="My decision matrix for the six game ideas" />
             <figcaption class="media-caption">
               The matrix used to rank the six concepts, scored 6 for good down to 1 for bad. Prometheus came out on top, and became The Gift of Fire.
             </figcaption>

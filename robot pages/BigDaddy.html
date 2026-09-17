@@ -7,10 +7,8 @@
     <meta name="author" content="David Chmura">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="robot-styles.css">
-    <!-- Loaded after Bootstrap so the shell's own rules win where they overlap. -->
     <link rel="stylesheet" href="../layout.css">
     <script>
-      // Applied before first paint so the page never flashes the wrong theme.
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -26,7 +24,7 @@
         <h1 class="title_block">Big Daddy</h1>
         <div class="container-1-3">
           <div class="picture">
-            <img src="../media/big daddy.jpeg" alt="Big Daddy on the competition field, its clear hopper full of yellow game balls above a red 195 bumper" class="robot-picture"/>
+            <img src="../media/big daddy.jpeg" alt="Big Daddy on the field with a full hopper" class="robot-picture"/>
           </div>
           <p class="paragraph">
             Big Daddy is the name of our robot for the 2026 FRC season game, Rebuilt, where the goal is to
@@ -75,7 +73,6 @@
           </p>
         </div>
 
-        <!-- ?t=260 starts the video at 4:20, where the interview begins. -->
         <div class="button-container">
           <a class="btn btn-outline-primary" href="https://youtu.be/Wqm1B6pDzk4?t=260" target="_blank" rel="noopener">
             Watch Interview

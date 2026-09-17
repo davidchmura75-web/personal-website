@@ -13,8 +13,6 @@
   --rule: #d7dae1;
   --foot-bg: #000;
   --foot-fg: #fafdf6;
-  /* Laid over the tiled backdrop so the otters read as wallpaper rather than
-     competing with the card on top of them. */
   --page-veil: rgba(255, 235, 205, 0.58);
   --tile-size: 100px;
 }
@@ -51,10 +49,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Otter wallpaper behind the card. The flat --page-veil layer sits on top of the
-   tile in both themes, so the same artwork reads light or dark; raise its alpha
-   to mute the otters further, lower it to let them through. Paths in this file
-   resolve from the stylesheet, so the same rule works from the subfolders. */
 body {
   background-image:
     linear-gradient(var(--page-veil), var(--page-veil)),
@@ -81,8 +75,6 @@ a {
   z-index: 2;
 }
 
-/* The rails track the theme, so in light mode they need an edge of their own to
-   separate them from the page behind. */
 .rail-left {
   left: 0;
   border-right: 1px solid var(--rule);
@@ -166,7 +158,6 @@ a {
   opacity: 0.8;
 }
 
-/* Wraps rather than overflowing once the row of profile links gets long. */
 .page-links {
   display: flex;
   flex-wrap: wrap;
@@ -239,22 +230,14 @@ a {
   outline: none;
 }
 
-/* Centred like the section headings above it on the home page. */
 body[data-page="home"] .portfolio-title {
   text-align: center;
 }
 
-.portfolio-note {
-  margin: 0 0 24px;
-  opacity: 0.75;
-}
-
-/* Without a note in between, the title would sit right on top of the cards. */
 .portfolio-title + .portfolio-grid {
   margin-top: 24px;
 }
 
-/* Reflows on its own as entries are added or removed. */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -267,13 +250,6 @@ body[data-page="home"] .portfolio-title {
   padding: 20px;
   background-color: var(--surface);
   border: 1px solid var(--rule);
-}
-
-/* Unfilled slot: dashed and muted until it holds something real. */
-.portfolio-item.is-empty {
-  background-color: transparent;
-  border-style: dashed;
-  opacity: 0.6;
 }
 
 .portfolio-item-title {
@@ -291,15 +267,12 @@ body[data-page="home"] .portfolio-title {
   opacity: 0.8;
 }
 
-/* auto top margin pins the link to the bottom, so it lines up across cards
-   whatever length the descriptions are. */
 .portfolio-item-actions {
   margin: auto 0 0;
   padding-top: 16px;
   font-size: 0.95rem;
 }
 
-/* Page headings sit above centered content on every page that uses them. */
 .title_block {
   text-align: center;
   margin-bottom: 8px;
@@ -320,7 +293,6 @@ body[data-page="home"] .portfolio-title {
   border: 1px solid var(--rule);
 }
 
-/* Shown by the browser only when it won't render the PDF inline. */
 .pdf-fallback {
   display: flex;
   align-items: center;
@@ -353,7 +325,6 @@ body[data-page="home"] .portfolio-title {
   outline: none;
 }
 
-/* Sits in the same grid slots as .robot-picture, so it scales the same way. */
 .robot-video {
   display: block;
   width: 100%;
@@ -361,7 +332,6 @@ body[data-page="home"] .portfolio-title {
   background-color: #000;
 }
 
-/* Wrapper for a video or image plus its caption, in a page's media slot. */
 .media-figure {
   margin: 0;
 }
@@ -392,7 +362,6 @@ body[data-page="home"] .portfolio-title {
   margin-top: 48px;
 }
 
-/* Prose reads left-aligned, but the column stays centered on the page. */
 .section-text {
   max-width: 640px;
   margin: 0 auto;
@@ -410,8 +379,6 @@ body[data-page="home"] .portfolio-title {
   margin: 28px 0;
 }
 
-/* Prose and media side by side. Stacks below 1080px, where two columns would
-   leave both too narrow to read or watch. */
 .section-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -419,7 +386,6 @@ body[data-page="home"] .portfolio-title {
   align-items: center;
 }
 
-/* Both children are centred blocks on their own, so drop that inside the grid. */
 .section-split .section-text {
   max-width: none;
   margin: 0;
@@ -429,17 +395,11 @@ body[data-page="home"] .portfolio-title {
   margin: 0;
 }
 
-/* The heading sits inside the copy column, so it centres over the text rather
-   than over the whole two-column row. */
 .section-copy .section-heading {
   margin-bottom: 12px;
 }
 
-/* Held well short of the column width so the clip doesn't dominate the row.
-   The placeholder is capped to match, so slots line up before and after a
-   real video goes in. */
-.section-split .section-video,
-.section-split .video-placeholder {
+.section-split .section-video {
   max-width: 420px;
 }
 
@@ -450,7 +410,6 @@ body[data-page="home"] .portfolio-title {
   }
 }
 
-/* Wider than .section-text so tables and diagrams stay legible. */
 .section-image,
 .section-video {
   display: block;
@@ -461,7 +420,6 @@ body[data-page="home"] .portfolio-title {
   border: 1px solid var(--rule);
 }
 
-/* White backing keeps dark text readable if the image has transparency. */
 .section-image {
   background-color: #fff;
 }
@@ -501,7 +459,6 @@ body[data-page="home"] .portfolio-title {
   border: 1px solid var(--rule);
 }
 
-/* Godot web builds render into a canvas that fills the frame. */
 .game-frame {
   display: block;
   width: 100%;
@@ -510,7 +467,6 @@ body[data-page="home"] .portfolio-title {
   border: 1px solid var(--rule);
 }
 
-/* Mute and volume, sitting directly under an embedded game. */
 .audio-controls {
   display: flex;
   align-items: center;
@@ -537,7 +493,6 @@ body[data-page="home"] .portfolio-title {
   outline: none;
 }
 
-/* Pressed means muted, so it reads as the state rather than a plain button. */
 .audio-toggle[aria-pressed="true"] {
   background-color: var(--thumb-bg);
   opacity: 0.8;
@@ -555,7 +510,6 @@ body[data-page="home"] .portfolio-title {
   accent-color: currentColor;
 }
 
-/* Google Slides decks are 16:9 by default, unlike the 4:3 above. */
 .embed-frame.is-wide {
   aspect-ratio: 16 / 9;
   min-height: 0;
@@ -589,7 +543,6 @@ body[data-page="home"] .portfolio-title {
   font-size: 0.9rem;
 }
 
-/* Second footer line, for credits that sit under the copyright. */
 .foot .credit {
   display: block;
   margin-top: 8px;
@@ -600,7 +553,6 @@ body[data-page="home"] .portfolio-title {
 
 /* --- theme toggle --- */
 
-/* The moon shows in light mode (click to go dark) and the sun in dark mode. */
 .theme-toggle .icon-sun {
   display: none;
 }
@@ -623,7 +575,6 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     text-align: center;
   }
 
-  /* A full-width bar, so its edge belongs along the bottom instead. */
   .rail-left {
     display: flex;
     justify-content: center;
@@ -647,8 +598,6 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     padding: 14px 20px;
   }
 
-  /* Floats over the page, so it needs to carry its own pill. The outline keeps
-     it visible in light mode, where the pill and the page are both pale. */
   .rail-right .rail-item {
     padding: 10px;
     border-radius: 999px;
