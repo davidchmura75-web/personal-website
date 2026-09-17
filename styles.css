@@ -79,11 +79,6 @@
   margin-bottom: 0;
 }
 
-/* Hairline only between stacked projects, so a lone project page shows none. */
-.project + .project {
-  border-top: 1px solid var(--rule);
-}
-
 .project-stack .project:first-child {
   padding-top: 16px;
 }

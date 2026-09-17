@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sheep Herder &mdash; David Chmura</title>
+    <meta name="author" content="David Chmura">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Loaded after styles.css so the shell's own rules win where they overlap. -->
+    <link rel="stylesheet" href="../layout.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="project" data-back="../projects.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
+
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">Sheep Herder</h1>
+
+        <div class="project">
+          <!-- Placeholder blurb. -->
+          <p class="project-blurb">
+            A Sokoban style game about herding sheep
+          </p>
+        </div>
+
+        <section class="page-section">
+          <h2 class="section-heading">Play in browser</h2>
+          <!-- Points at the web export in games/sheep-herder/. Export without
+               Thread Support, like Gift of Fire, so it needs no cross-origin
+               isolation headers to run. -->
+          <iframe
+            class="game-frame"
+            data-game-frame
+            src="../games/sheep-herder/index.html"
+            title="Sheep Herder"
+            allow="autoplay; fullscreen; gamepad"
+            allowfullscreen></iframe>
+
+          <!-- Driven by main.js, which posts to the frame. The game's own page
+               routes its audio through a master gain node that listens for
+               those messages. -->
+          <div class="audio-controls" data-game-audio>
+            <button class="audio-toggle" type="button" data-game-mute aria-pressed="false">
+              Mute
+            </button>
+            <label class="audio-volume">
+              <span>Volume</span>
+              <input type="range" min="0" max="100" value="100" data-game-volume
+                aria-label="Game volume">
+            </label>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Screenshots</h2>
+
+          <figure class="section-figure">
+            <img class="section-image" src="../media/sheep_game_2.png"
+              alt="Level 7 open in the Godot editor: a fenced pen on a green tile grid holding sheep, a barn, and the player sprite, with the scene tree on the left and a tile palette listing player, sheep, and haybale below." />
+            <figcaption class="media-caption">
+              A level under construction in the Godot editor. 
+            </figcaption>
+          </figure>
+
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Notes</h2>
+
+          <!-- Placeholder copy. Add another <p> for each further paragraph. -->
+          <div class="section-text">
+            <p>
+              Sheep was the theme of a game jam I looked into one weekend, and I landed on this three-hour jam.
+              This jam was perfect for me to get in development practice while not taking that long since I was in college at the time.
+            </p>
+            <p>
+              Sheep Herder was not originally going to be Sheep Herder. I first wanted to make a game about counting sheep,
+              but after thinking for a while, this Sokoban style game sounded a lot more fun. Additionally, I was fine taking on a more complex idea since I was working with one of my college roommates.
+              However, my roommate had never used Godot or done a game jam before, so I made sure time was allotted for him to get acclimated to the engine.
+            </p>
+            <p>
+              The development process was relatively smooth. We were able to work together to make art, music, and of course, the game itself. We started with designing the art, and then moved to implementing it into the game.
+              After the game was complete and level winning and changing worked, we only had about an hour left. We were able to create six levels and tacked on the one I used for testing as a seventh. 
+              With all of our time used, I compiled the game and submitted, and all that was left was to rate the games and wait for the results.
+            </p>
+            <p>
+              After the rating period ended, I was very happy with the results. Not only did we get 5th place overall, but we got the highest score in the gameplay category. Our biggest issues were with audio and art, which I am fine with, since we aren't artists and 
+              I was committed to creating our own assets instead of using public ones. But more than the rating, I was proud of the game we created. In less time than my first game, I created a product that was much more professional, fun, and silly!
+              During this project I learned a lot about teaching and communicating ideas, since although my roommate was newer to game development, we were still able to work effectively and create a product we could both be proud of.
+            </p>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Jam results</h2>
+
+          <figure class="section-figure">
+            <img class="section-image" src="../media/sheep_game_3.png"
+              alt="Jam results for Sheep Herder by Ternary348: ranked 5th with 9 ratings and a score of 3.889. Gameplay ranked 1st at 4.444, theme fit 3rd at 4.556, overall 5th at 3.889, audio 14th at 2.889, and visuals 23rd at 2.556." />
+            <figcaption class="media-caption">
+              5th overall out of the rated entries, and 1st on gameplay.
+            </figcaption>
+          </figure>
+        </section>
+
+        <p class="project-actions is-centered">
+          <a class="button-link" href="https://ternary348.itch.io/shepherd" target="_blank" rel="noopener">
+            Play the game on itch.io
+          </a>
+        </p>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 David Chmura</span>
+      </footer>
+    </div>
+  </body>
+</html>

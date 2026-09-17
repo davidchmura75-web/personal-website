@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>John Doe</title>
-    <meta name="author" content="John Doe">
+    <title>David Chmura</title>
+    <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="layout.css">
     <script>
       // Applied before first paint so the page never flashes the wrong theme.
@@ -20,17 +20,95 @@
 
     <div class="view">
       <main class="main">
-        <header class="page-head" data-site-head></header>
+        <!-- 1. Name, one-liner, social links. The name and links come from PROFILE
+             in main.js; only the tagline is set here. Keep it to one line: what you
+             do, and what you build. -->
+        <header class="page-head" data-site-head
+          data-tagline="A passionate student who creates robots and codes games."></header>
 
-        <div>Home</div>
-        <div>catch-phrase or some memorable one liner</div>
-        <div>about me blurb</div>
-        <div>Picture for showing who the goat himself is</div>
-        <!-- Center content goes here. -->
+        <!-- 2. The blurb. Three or four sentences, no more: who you are, what you
+             like working on, and one thing that makes you you. Anything longer
+             belongs on the page for the thing it's about. -->
+        <section class="page-section">
+          <h2 class="section-heading">About me</h2>
+
+          <div class="section-text">
+            <p>
+              I am a student, engineer, and developer committed to learning. Currently, I am a freshman
+              at Northeastern with a combined major in Mechanical Engineering and Computer Science.
+            </p>
+            <p>
+              I aspire to have my work be fun for me in the future, whether that be designing and programming robots,
+              developing games, or using the skills I learn to create solutions to meaningful problems.
+            </p>
+            <p>
+              Some of my more unique talents include juggling, beating Minecraft in under 20 minutes, and being able to identify all 195 United Nations countries on a map.
+            </p>
+            <p>
+              Right now, I am working on designing and creating a remote-controlled robotic dog.
+            </p>
+          </div>
+        </section>
+
+        <!-- 3. Three standouts, one per area, each linking to its own page. The
+             rails already cover Robots, Projects, and Resume, so point these at
+             specific work instead. Copy an <article> to add more; the grid reflows. -->
+        <section class="portfolio">
+          <h2 class="portfolio-title">Highlights</h2>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">KnightQuil</h3>
+              <p class="portfolio-item-text">
+                Placeholder line about this robot and the season it competed in.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="robot pages/Knightquil.html">See more</a>
+              </p>
+            </article>
+
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">Tipping Point</h3>
+              <p class="portfolio-item-text">
+                Ping pong balancing system using PID control.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="project pages/TippingPoint.html">See more</a>
+              </p>
+            </article>
+
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">Sheep Herder</h3>
+              <p class="portfolio-item-text">
+                A game about herding sheep.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="project pages/SheepHerder.html">See more</a>
+              </p>
+            </article>
+
+            <article class="portfolio-item">
+              <h3 class="portfolio-item-title">Resume</h3>
+              <p class="portfolio-item-text">
+                The short version, for business and professional inquiries.
+              </p>
+              <p class="portfolio-item-actions">
+                <a class="text-link" href="resume.html">See more</a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. One line out. The icons up top already carry the links, so this is
+             just a nudge for anyone who scrolled to the bottom. -->
+        <p class="embed-actions">
+          <a class="text-link" href="mailto:davidchmura75@gmail.com">Get in touch</a>
+        </p>
       </main>
 
       <footer class="foot">
-        <span class="legal">&copy; 2026 John Doe</span>
+        <span class="legal">&copy; 2026 David Chmura</span>
+        <span class="credit">All artwork on this site drawn by me.</span>
       </footer>
     </div>
   </body>

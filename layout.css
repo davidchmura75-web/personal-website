@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
 
 :root {
   --rail-w: 152px;
-  --rail-bg: #000;
-  --rail-fg: #fff;
-  --rail-fg-dim: #c9ccd1;
+  --rail-bg: #fff;
+  --rail-fg: #050e1f;
+  --rail-fg-dim: #545c6b;
   --page-bg: #ffebcd;
   --card-bg: #f7f8fa;
   --surface: #fff;
@@ -13,10 +13,18 @@
   --rule: #d7dae1;
   --foot-bg: #000;
   --foot-fg: #fafdf6;
+  /* Laid over the tiled backdrop so the otters read as wallpaper rather than
+     competing with the card on top of them. */
+  --page-veil: rgba(255, 235, 205, 0.58);
+  --tile-size: 100px;
 }
 
 html[data-theme="dark"] {
+  --rail-bg: #000;
+  --rail-fg: #fff;
+  --rail-fg-dim: #c9ccd1;
   --page-bg: #0b0d0e;
+  --page-veil: rgba(11, 13, 14, 0.74);
   --card-bg: #1c1e1f;
   --surface: #26292b;
   --thumb-bg: #141617;
@@ -34,13 +42,26 @@ body {
   padding: 0;
   min-height: 100%;
   width: 100%;
-  font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  font-family: "Josefin Sans", "Segoe UI", system-ui, sans-serif;
   font-weight: 400;
   color: var(--fg);
   background-color: var(--page-bg);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Otter wallpaper behind the card. The flat --page-veil layer sits on top of the
+   tile in both themes, so the same artwork reads light or dark; raise its alpha
+   to mute the otters further, lower it to let them through. Paths in this file
+   resolve from the stylesheet, so the same rule works from the subfolders. */
+body {
+  background-image:
+    linear-gradient(var(--page-veil), var(--page-veil)),
+    url("media/otter_pfp.png");
+  background-repeat: repeat;
+  background-size: auto, var(--tile-size) var(--tile-size);
+  background-attachment: fixed, scroll;
 }
 
 a {
@@ -60,12 +81,16 @@ a {
   z-index: 2;
 }
 
+/* The rails track the theme, so in light mode they need an edge of their own to
+   separate them from the page behind. */
 .rail-left {
   left: 0;
+  border-right: 1px solid var(--rule);
 }
 
 .rail-right {
   right: 0;
+  border-left: 1px solid var(--rule);
 }
 
 .rail-item {
@@ -141,10 +166,12 @@ a {
   opacity: 0.8;
 }
 
+/* Wraps rather than overflowing once the row of profile links gets long. */
 .page-links {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   margin-top: 20px;
 }
 
@@ -171,8 +198,6 @@ a {
 
 .portfolio {
   margin-top: 56px;
-  padding-top: 32px;
-  border-top: 1px solid var(--rule);
 }
 
 .portfolio-title {
@@ -180,9 +205,53 @@ a {
   font-size: 1.8rem;
 }
 
+/* --- tag list: every project and robot as a compact link --- */
+
+.tag-group-label {
+  margin: 24px 0 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 16px;
+  font-size: 0.95rem;
+  color: inherit;
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tag:hover,
+.tag:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  outline: none;
+}
+
+/* Centred like the section headings above it on the home page. */
+body[data-page="home"] .portfolio-title {
+  text-align: center;
+}
+
 .portfolio-note {
   margin: 0 0 24px;
   opacity: 0.75;
+}
+
+/* Without a note in between, the title would sit right on top of the cards. */
+.portfolio-title + .portfolio-grid {
+  margin-top: 24px;
 }
 
 /* Reflows on its own as entries are added or removed. */
@@ -234,17 +303,6 @@ a {
 .title_block {
   text-align: center;
   margin-bottom: 8px;
-}
-
-/* Little divider bar between a robot page's title and the write-up below it. */
-body[data-page="robot"] .title_block::after {
-  content: "";
-  display: block;
-  width: 72px;
-  height: 3px;
-  margin: 16px auto 0;
-  background-color: currentColor;
-  opacity: 0.35;
 }
 
 /* --- embedded PDF --- */
@@ -426,10 +484,6 @@ body[data-page="robot"] .title_block::after {
   padding: 10px 0;
 }
 
-.credits-list li + li {
-  border-top: 1px solid var(--rule);
-}
-
 .credit-name {
   font-weight: 700;
 }
@@ -454,6 +508,51 @@ body[data-page="robot"] .title_block::after {
   aspect-ratio: 16 / 9;
   background-color: #000;
   border: 1px solid var(--rule);
+}
+
+/* Mute and volume, sitting directly under an embedded game. */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.audio-toggle {
+  padding: 8px 20px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: inherit;
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+
+.audio-toggle:hover,
+.audio-toggle:focus-visible {
+  opacity: 0.85;
+  outline: none;
+}
+
+/* Pressed means muted, so it reads as the state rather than a plain button. */
+.audio-toggle[aria-pressed="true"] {
+  background-color: var(--thumb-bg);
+  opacity: 0.8;
+}
+
+.audio-volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.audio-volume input {
+  width: 160px;
+  accent-color: currentColor;
 }
 
 /* Google Slides decks are 16:9 by default, unlike the 4:3 above. */
@@ -490,6 +589,15 @@ body[data-page="robot"] .title_block::after {
   font-size: 0.9rem;
 }
 
+/* Second footer line, for credits that sit under the copyright. */
+.foot .credit {
+  display: block;
+  margin-top: 8px;
+  color: var(--foot-fg);
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
 /* --- theme toggle --- */
 
 /* The moon shows in light mode (click to go dark) and the sun in dark mode. */
@@ -515,9 +623,12 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     text-align: center;
   }
 
+  /* A full-width bar, so its edge belongs along the bottom instead. */
   .rail-left {
     display: flex;
     justify-content: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
   }
 
   .rail-right {
@@ -527,6 +638,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     width: auto;
     padding: 0;
     background: none;
+    border: 0;
     z-index: 3;
   }
 
@@ -535,12 +647,14 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     padding: 14px 20px;
   }
 
-  /* Floats over the page, so it needs to carry its own dark pill. */
+  /* Floats over the page, so it needs to carry its own pill. The outline keeps
+     it visible in light mode, where the pill and the page are both pale. */
   .rail-right .rail-item {
     padding: 10px;
     border-radius: 999px;
     background-color: var(--rail-bg);
     color: var(--rail-fg);
+    border: 1px solid var(--rule);
   }
 
   .rail-item svg {

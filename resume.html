@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume &mdash; John Doe</title>
-    <meta name="author" content="John Doe">
+    <title>Resume &mdash; David Chmura</title>
+    <meta name="author" content="David Chmura">
     <link rel="stylesheet" href="layout.css">
     <script>
       // Applied before first paint so the page never flashes the wrong theme.
@@ -42,43 +42,30 @@
         <section class="portfolio">
           <h2 class="portfolio-title">Portfolio</h2>
 
-          <!-- Copy an <article> to add more; the grid reflows on its own. -->
-          <div class="portfolio-grid">
-            <article class="portfolio-item">
-              <h3 class="portfolio-item-title">Tipping Point</h3>
-              <p class="portfolio-item-text">
-                Ping pong balancing system using PID control.
-              </p>
-              <p class="portfolio-item-actions">
-                <a class="text-link" href="project pages/TippingPoint.html">See more</a>
-              </p>
-            </article>
+          <!-- Every project and robot on the site, one tag each. Add a tag when a
+               new page goes up so nothing here goes stale. -->
+          <p class="tag-group-label">Projects</p>
+          <div class="tag-list">
+            <a class="tag" href="project pages/TippingPoint.html">Tipping Point</a>
+            <a class="tag" href="project pages/SheepHerder.html">Sheep Herder</a>
+            <a class="tag" href="project pages/BottleRocket.html">Bottle Rocket Launcher</a>
+            <a class="tag" href="project pages/GiftOfFire.html">The Gift of Fire</a>
+          </div>
 
-            <article class="portfolio-item">
-              <h3 class="portfolio-item-title">The Gift of Fire</h3>
-              <p class="portfolio-item-text">
-                A game made for Mini Jam 218: Fire, with a limitation of only 3 colors. Playable in the browser.
-              </p>
-              <p class="portfolio-item-actions">
-                <a class="text-link" href="project pages/GiftOfFire.html">See more</a>
-              </p>
-            </article>
-
-            <article class="portfolio-item">
-              <h3 class="portfolio-item-title">Bottle Rocket Launcher</h3>
-              <p class="portfolio-item-text">
-                A homemade pressurized air cannon controlled by a solenoid and a dead man's switch.
-              </p>
-              <p class="portfolio-item-actions">
-                <a class="text-link" href="project pages/BottleRocket.html">See more</a>
-              </p>
-            </article>
+          <p class="tag-group-label">Robots</p>
+          <div class="tag-list">
+            <a class="tag" href="robot pages/BigDaddy.html">Big Daddy</a>
+            <a class="tag" href="robot pages/Knightquil.html">KnightQuil</a>
+            <a class="tag" href="robot pages/CyberSurge.html">CyberSurge</a>
+            <a class="tag" href="robot pages/KnightShift.html">KnightShift: Overtime</a>
+            <a class="tag" href="robot pages/CyberBolts.html">CyberBolts</a>
+            <a class="tag" href="robot pages/CyberSquire.html">The CyberSquire</a>
           </div>
         </section>
       </main>
 
       <footer class="foot">
-        <span class="legal">&copy; 2026 John Doe</span>
+        <span class="legal">&copy; 2026 David Chmura</span>
       </footer>
     </div>
   </body>
