@@ -1,48 +1,31 @@
-name: Checkout and Build
+name: Deploy Static Site
 on:
   push:
     branches: [
       main
     ]
-  pull_request:
-    branches: [
-      main
-    ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Set up Node
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-
-      # 2. Check out the repository
+      # 1. Check out the repository
       - uses: actions/checkout@v3
 
-      - name: Build
-        run: |
-          # 3. Install dependencies
-          npm install
-          # 4. Build the site
-          npm run prepub
-
-      # 5. Configure SSH known-hosts
+      # 2. Configure SSH known-hosts
       - name: Adding Known Hosts
         run: |
           mkdir -p ~/.ssh/
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      # 6. Install the SSH key from repository secrets
+      # 3. Install the SSH key from repository secrets
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: unnecessary
 
-      # 7. Rsync the built site to the host
+      # 4. Rsync the static files to the host
       - name: Deploy with rsync
-        run: rsync -avz build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}
+        run: rsync -avz --delete ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}
