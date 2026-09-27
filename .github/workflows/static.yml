@@ -1,0 +1,31 @@
+name: Deploy Static Site
+on:
+  push:
+    branches: [
+      main
+    ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - uses: actions/checkout@v3
+
+      # 2. Configure SSH known-hosts
+      - name: Adding Known Hosts
+        run: |
+          mkdir -p ~/.ssh/
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # 3. Install the SSH key from repository secrets
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+
+      # 4. Rsync the static files to the host
+      - name: Deploy with rsync
+        run: rsync -avz --delete ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}
