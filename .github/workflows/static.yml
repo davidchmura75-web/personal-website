@@ -11,7 +11,10 @@ jobs:
 
     steps:
       # 1. Check out the repository
-      - uses: actions/checkout@v3
+      #    lfs: true pulls the real .mp4 files; without it only tiny LFS pointer files get deployed
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
 
       # 2. Configure SSH known-hosts
       - name: Adding Known Hosts
@@ -28,4 +31,13 @@ jobs:
 
       # 4. Rsync the static files to the host
       - name: Deploy with rsync
-        run: rsync -avz --delete ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}
+        run: >
+          rsync -avz --delete
+          --exclude=".git*"
+          --exclude=".github/"
+          --exclude="README.md"
+          --exclude="package*.json"
+          --exclude="games/**/*.zip"
+          --exclude="*.import"
+          --exclude="export_presets.cfg"
+          ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_TARGET_DIR }}

@@ -1,0 +1,13 @@
+# Server config for Apache / LiteSpeed hosts. Ignored by nginx (see the deploy notes).
+
+# Godot web builds load the engine with WebAssembly.instantiateStreaming, which
+# refuses to run unless .wasm is served with exactly this type.
+AddType application/wasm .wasm
+AddType application/octet-stream .pck
+AddType text/javascript .js
+AddType video/mp4 .mp4
+
+# The game .wasm files are ~38 MB each; compressing them cuts load time a lot.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/wasm application/octet-stream text/javascript text/css text/html
+</IfModule>
