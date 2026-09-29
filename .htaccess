@@ -8,6 +8,14 @@ AddType text/javascript .js
 AddType video/mp4 .mp4
 
 # The game .wasm files are ~38 MB each; compressing them cuts load time a lot.
+# Make browsers re-check pages, styles and scripts on each visit so a deploy shows up
+# right away instead of an old cached copy. Unchanged files still come back as a quick 304.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE application/wasm application/octet-stream text/javascript text/css text/html
 </IfModule>
