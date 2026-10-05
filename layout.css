@@ -11,8 +11,8 @@
   --thumb-bg: #eceef2;
   --fg: #050e1f;
   --rule: #d7dae1;
-  --foot-bg: #000;
-  --foot-fg: #fafdf6;
+  --foot-bg: #fff;
+  --foot-fg: #050e1f;
   --page-veil: rgba(255, 235, 205, 0.58);
   --tile-size: 6.25rem;
 }
@@ -28,6 +28,8 @@ html[data-theme="dark"] {
   --thumb-bg: #141617;
   --fg: #e6e9ee;
   --rule: #2c2f31;
+  --foot-bg: #000;
+  --foot-fg: #fafdf6;
 }
 
 * {
@@ -743,6 +745,7 @@ body:has(.diary-nav) .foot {
   padding: 2% 0 3%;
   background-color: var(--foot-bg);
   color: var(--foot-fg);
+  border-top: 1px solid var(--rule);
   text-align: center;
 }
 
