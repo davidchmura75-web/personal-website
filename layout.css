@@ -2,18 +2,19 @@
 
 :root {
   --rail-w: 9.5rem;
-  --rail-bg: #fff;
-  --rail-fg: #050e1f;
-  --rail-fg-dim: #545c6b;
-  --page-bg: #ffebcd;
-  --card-bg: #f7f8fa;
-  --surface: #fff;
-  --thumb-bg: #eceef2;
-  --fg: #050e1f;
-  --rule: #d7dae1;
-  --foot-bg: #fff;
-  --foot-fg: #050e1f;
-  --page-veil: rgba(255, 235, 205, 0.58);
+  /* light theme: warm, muted parchment tones instead of pure white */
+  --rail-bg: #efe6d6;
+  --rail-fg: #1c2230;
+  --rail-fg-dim: #5b5546;
+  --page-bg: #e6d6ba;
+  --card-bg: #f3ece0;
+  --surface: #f8f3ea;
+  --thumb-bg: #e7dccb;
+  --fg: #1c2230;
+  --rule: #d4c7b1;
+  --foot-bg: #efe6d6;
+  --foot-fg: #1c2230;
+  --page-veil: rgba(230, 214, 186, 0.62);
   --tile-size: 6.25rem;
 }
 
