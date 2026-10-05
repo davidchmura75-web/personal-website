@@ -13,6 +13,11 @@
       '<path d="m12 3 9 5-9 5-9-5z"></path>' +
       '<path d="m3 12.5 9 5 9-5"></path>' +
       '<path d="m3 16.5 9 5 9-5"></path>',
+    dog:
+      '<rect x="5" y="9" width="11" height="5" rx="1.5"></rect>' +
+      '<path d="M16 10.5h3.5l1.5 2-1.5 1.5H16"></path>' +
+      '<path d="M5 10.5 3 8.5"></path>' +
+      '<path d="M7 14l-1 3.5 1 3M10 14v6.5M12.5 14v6.5M14.5 14l1 3.5-1 3"></path>',
     balance:
       '<path d="M12 3.5v17"></path><path d="M5 7.5h14"></path>' +
       '<path d="M5 7.5 2 14a3 3 0 0 0 6 0z"></path>' +
@@ -80,12 +85,29 @@
   // jump links added to the rail, per page
   var PAGE_SECTIONS = {
     projects: [
+      { href: "#robot-dog", label: "Robot Dog", icon: "dog" },
       { href: "#tipping-point", label: "Tipping Point", icon: "balance" },
       { href: "#sheep-herder", label: "Sheep Herder", icon: "sheep" },
       { href: "#bottle-rocket", label: "Bottle Rocket", icon: "rocket" },
       { href: "#gift-of-fire", label: "Gift of Fire", icon: "flame" }
     ]
   };
+
+  // progress-diary updates, oldest first; paths are relative to the project page.
+  // To add an update: copy an entry page in that folder, then add a line here.
+  var DIARIES = {
+    "robot-dog": [
+      { href: "robot-dog/update-1.html", date: "2026-10-01", title: "Designing the Dog" },
+      { href: "robot-dog/update-2.html", date: "2026-10-02", title: "Materials List" },
+      { href: "robot-dog/update-3.html", date: "2026-10-03", title: "Testing a Leg" }
+    ]
+  };
+
+  function formatDate(iso) {
+    var parts = iso.split("-");
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  }
 
   function svg(icon, className) {
     return (
@@ -232,11 +254,79 @@
     frame.addEventListener("load", post);
   }
 
+  // the newest-first list of updates on a project page
+  function buildDiaryList() {
+    var list = document.querySelector("[data-diary-list]");
+    if (!list) return;
+
+    var entries = DIARIES[list.dataset.diaryList] || [];
+
+    list.innerHTML = entries
+      .slice()
+      .reverse()
+      .map(function (entry) {
+        return (
+          '<li><a class="diary-link" href="' +
+          entry.href +
+          '"><time class="diary-date" datetime="' +
+          entry.date +
+          '">' +
+          formatDate(entry.date) +
+          '</time><span class="diary-link-title">' +
+          entry.title +
+          "</span></a></li>"
+        );
+      })
+      .join("");
+  }
+
+  // previous / all updates / next, on a single update page
+  function buildDiaryNav() {
+    var nav = document.querySelector("[data-diary-nav]");
+    if (!nav) return;
+
+    var entries = DIARIES[nav.dataset.diaryNav] || [];
+    // compare file names without ".html", since some hosts drop the extension
+    function name(path) {
+      return decodeURIComponent(path.split("/").pop()).replace(/\.html$/, "");
+    }
+    var here = name(location.pathname);
+    var index = -1;
+    entries.forEach(function (entry, i) {
+      if (name(entry.href) === here) index = i;
+    });
+
+    // entry hrefs are relative to the project page, one folder up from here
+    function link(entry, className, label) {
+      if (!entry) {
+        return '<span class="button-link ' + className + ' is-disabled">' + label + "</span>";
+      }
+      return (
+        '<a class="button-link ' + className + '" href="' +
+        entry.href.split("/").pop() +
+        '" title="' +
+        entry.title +
+        '">' +
+        label +
+        "</a>"
+      );
+    }
+
+    nav.innerHTML =
+      link(entries[index - 1], "diary-nav-prev", "&larr; Previous") +
+      '<a class="button-link diary-nav-all" href="' +
+      document.body.dataset.back +
+      '">All updates</a>' +
+      link(index === -1 ? null : entries[index + 1], "diary-nav-next", "Next &rarr;");
+  }
+
   function init() {
     buildSiteHead();
     buildNav();
     buildThemeToggle();
     buildGameAudio();
+    buildDiaryList();
+    buildDiaryNav();
   }
 
   if (document.readyState === "loading") {

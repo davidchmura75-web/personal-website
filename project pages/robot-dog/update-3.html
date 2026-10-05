@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Robot Dog: Testing a Leg &mdash; David Chmura</title>
+    <meta name="author" content="David Chmura">
+    <link rel="icon" type="image/png" href="../../media/otter_pfp.png">
+    <link rel="stylesheet" href="../../styles.css?v=2">
+    <link rel="stylesheet" href="../../layout.css?v=3">
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script src="../../main.js?v=3" defer></script>
+  </head>
+  <!--
+    To make a new update: copy this file (update-4.html, update-5.html, ...), change the
+    title, date, picture, and blurb, then add a matching line to DIARIES in main.js.
+  -->
+  <body data-page="project" data-back="../RobotDog.html">
+    <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
+    <nav class="rail rail-right" aria-label="Preferences" data-theme-rail></nav>
+
+    <div class="view">
+      <main class="main">
+        <h1 class="title_block">Robot Dog</h1>
+        <p class="status-row"><span class="status-badge">In Progress</span></p>
+
+        <article class="diary-entry">
+          <p class="diary-date"><time datetime="2026-10-03">October 3, 2026</time></p>
+          <h2 class="diary-title">Testing a Leg</h2>
+          <img class="diary-image" src="../../media/RobotDogLegTest.jpg"
+            alt="A single 3D-printed white leg mounted on a test stand" />
+          <p class="diary-text">
+            I designed a leg module that could be fully 3d printed and didn't require any external parts to build, in order to test if the 2 servos could mimic the motion I would want in real life. 
+            The test result was all good, and the design is functional for the leg module, and will be used going forwards. In the future, the stand for that leg will be printed at 100% size, unlike the one pictured.
+          </p>
+        </article>
+
+        <nav class="diary-nav" aria-label="Progress updates" data-diary-nav="robot-dog"></nav>
+      </main>
+
+      <footer class="foot">
+        <span class="legal">&copy; 2026 David Chmura</span>
+      </footer>
+    </div>
+  </body>
+</html>
