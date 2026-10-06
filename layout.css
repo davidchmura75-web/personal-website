@@ -675,6 +675,78 @@ html[data-theme="dark"] .status-badge {
   margin: 0;
 }
 
+/* --- gallery carousel: one picture at a time, swipe or use the arrows --- */
+
+.gallery {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-track:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.gallery-slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background-color: var(--thumb-bg);
+}
+
+.gallery-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.gallery-controls button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.gallery-count {
+  min-width: 3.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    scroll-behavior: auto;
+  }
+}
+
 /* parts list / bill of materials; scrolls sideways on narrow screens */
 .parts-table-wrap {
   margin: 0 0 1.25rem;

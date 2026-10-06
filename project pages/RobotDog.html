@@ -7,13 +7,13 @@
     <meta name="author" content="David Chmura">
     <link rel="icon" type="image/png" href="../media/otter_pfp.png">
     <link rel="stylesheet" href="../styles.css?v=2">
-    <link rel="stylesheet" href="../layout.css?v=7">
+    <link rel="stylesheet" href="../layout.css?v=9">
     <script>
       document.documentElement.dataset.theme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     </script>
-    <script src="../main.js?v=4" defer></script>
+    <script src="../main.js?v=8" defer></script>
   </head>
   <body data-page="project" data-back="../projects.html">
     <nav class="rail rail-left" aria-label="Primary" data-nav></nav>
@@ -47,6 +47,13 @@
 
           <!-- filled in from the DIARIES list in main.js, newest first -->
           <ul class="diary-list" data-diary-list="robot-dog"></ul>
+        </section>
+
+        <section class="page-section">
+          <h2 class="section-heading">Gallery</h2>
+
+          <!-- filled in from the images on each update in DIARIES, in main.js -->
+          <div class="gallery" data-diary-gallery="robot-dog"></div>
         </section>
 
       </main>

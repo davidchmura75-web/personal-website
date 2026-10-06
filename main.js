@@ -95,12 +95,25 @@
 
   // progress-diary updates, oldest first; paths are relative to the project page.
   // To add an update: copy an entry page in that folder, then add a line here.
+  // Any `images` listed also show up in the gallery carousel on the project page.
   var DIARIES = {
     "robot-dog": [
-      { href: "robot-dog/update-1.html", date: "2026-10-01", title: "Designing the Dog" },
+      {
+        href: "robot-dog/update-1.html", date: "2026-10-01", title: "Designing the Dog",
+        images: [{ src: "../media/RobotDogCAD_Rev1.jpg", caption: "First CAD revision" }]
+      },
       { href: "robot-dog/update-2.html", date: "2026-10-02", title: "Materials List" },
-      { href: "robot-dog/update-3.html", date: "2026-10-03", title: "Testing a Leg" },
-      { href: "robot-dog/update-4.html", date: "2026-10-05", title: "New CAD Models" }
+      {
+        href: "robot-dog/update-3.html", date: "2026-10-03", title: "Testing a Leg",
+        images: [{ src: "../media/RobotDogLegTest.jpg", caption: "Printed leg module on its test stand" }]
+      },
+      {
+        href: "robot-dog/update-4.html", date: "2026-10-05", title: "New CAD Models",
+        images: [
+          { src: "../media/robotDogHardware.png", caption: "CAD with hardware" },
+          { src: "../media/robotDogPrintedParts.png", caption: "CAD with only the 3D-printed parts" }
+        ]
+      }
     ]
   };
 
@@ -321,6 +334,110 @@
       link(index === -1 ? null : entries[index + 1], "diary-nav-next", "Next &rarr;");
   }
 
+  // carousel of every update's pictures, oldest first, on a project page
+  function buildDiaryGallery() {
+    var gallery = document.querySelector("[data-diary-gallery]");
+    if (!gallery) return;
+
+    var slides = [];
+    (DIARIES[gallery.dataset.diaryGallery] || []).forEach(function (entry) {
+      (entry.images || []).forEach(function (image) {
+        slides.push({ image: image, entry: entry });
+      });
+    });
+    if (!slides.length) return;
+
+    var count = slides.length;
+    var loops = count > 1;
+
+    // `copy` slides are the hidden stand-ins at either end that make the loop seamless
+    function slideHtml(slide, i, copy) {
+      return (
+        '<figure class="gallery-slide"' +
+        (copy ? ' aria-hidden="true"' : ' aria-label="' + (i + 1) + " of " + count + '"') +
+        ">" +
+        '<img src="' + slide.image.src + '" alt="' + (copy ? "" : slide.image.caption) + '" loading="lazy" />' +
+        '<figcaption class="gallery-caption">' + slide.image.caption +
+        ' &middot; <a class="text-link" href="' + slide.entry.href + '"' + (copy ? ' tabindex="-1"' : "") + ">" +
+        slide.entry.title + "</a>, " + formatDate(slide.entry.date) +
+        "</figcaption></figure>"
+      );
+    }
+
+    var html = slides
+      .map(function (slide, i) {
+        return slideHtml(slide, i, false);
+      })
+      .join("");
+    if (loops) {
+      html = slideHtml(slides[count - 1], count - 1, true) + html + slideHtml(slides[0], 0, true);
+    }
+
+    gallery.innerHTML =
+      '<div class="gallery-track" tabindex="0" aria-label="Picture gallery, use arrow keys to browse">' +
+      html +
+      "</div>" +
+      (loops
+        ? '<div class="gallery-controls">' +
+          '<button class="button-link" type="button" data-gallery-prev aria-label="Previous picture">&larr;</button>' +
+          '<span class="gallery-count" aria-live="polite"></span>' +
+          '<button class="button-link" type="button" data-gallery-next aria-label="Next picture">&rarr;</button>' +
+          "</div>"
+        : "");
+
+    if (!loops) return;
+
+    // track positions: 0 is a copy of the last picture, 1..count are the real ones,
+    // count + 1 is a copy of the first
+    var track = gallery.querySelector(".gallery-track");
+    var counter = gallery.querySelector(".gallery-count");
+    var settleTimer;
+
+    function position() {
+      return Math.round(track.scrollLeft / track.clientWidth);
+    }
+
+    function scrollToPosition(p, behavior) {
+      track.scrollTo({ left: p * track.clientWidth, behavior: behavior });
+    }
+
+    // pans one picture over; from the last it pans forward onto the copy of the first
+    function step(direction) {
+      var p = Math.max(0, Math.min(count + 1, position() + direction));
+      scrollToPosition(p, "smooth");
+    }
+
+    // once panning stops on a copy, swap to the real picture it stands in for
+    function settle() {
+      var p = position();
+      if (p === 0) scrollToPosition(count, "instant");
+      else if (p === count + 1) scrollToPosition(1, "instant");
+    }
+
+    function sync() {
+      counter.textContent = ((position() - 1 + count) % count) + 1 + " / " + count;
+    }
+
+    gallery.querySelector("[data-gallery-prev]").addEventListener("click", function () { step(-1); });
+    gallery.querySelector("[data-gallery-next]").addEventListener("click", function () { step(1); });
+    track.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") { event.preventDefault(); step(-1); }
+      if (event.key === "ArrowRight") { event.preventDefault(); step(1); }
+    });
+    track.addEventListener("scroll", function () {
+      sync();
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(settle, 120);
+    }, { passive: true });
+    window.addEventListener("resize", function () {
+      scrollToPosition(position(), "instant");
+      sync();
+    });
+
+    scrollToPosition(1, "instant");
+    sync();
+  }
+
   function init() {
     buildSiteHead();
     buildNav();
@@ -328,6 +445,7 @@
     buildGameAudio();
     buildDiaryList();
     buildDiaryNav();
+    buildDiaryGallery();
   }
 
   if (document.readyState === "loading") {
