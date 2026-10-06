@@ -649,6 +649,28 @@ html[data-theme="dark"] .status-badge {
   background-color: var(--thumb-bg);
 }
 
+/* for updates with more than one picture, each with a caption */
+.diary-figure {
+  margin: 0 0 1.5rem;
+}
+
+.diary-figure .diary-image {
+  margin-bottom: 0;
+}
+
+/* two or more pictures in a row; stacks on phones */
+.diary-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+  margin: 0 0 1.5rem;
+}
+
+.diary-figures .diary-figure {
+  margin: 0;
+}
+
 .diary-text {
   margin: 0;
 }

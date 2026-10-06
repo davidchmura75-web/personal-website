@@ -99,7 +99,8 @@
     "robot-dog": [
       { href: "robot-dog/update-1.html", date: "2026-10-01", title: "Designing the Dog" },
       { href: "robot-dog/update-2.html", date: "2026-10-02", title: "Materials List" },
-      { href: "robot-dog/update-3.html", date: "2026-10-03", title: "Testing a Leg" }
+      { href: "robot-dog/update-3.html", date: "2026-10-03", title: "Testing a Leg" },
+      { href: "robot-dog/update-4.html", date: "2026-10-05", title: "New CAD Models" }
     ]
   };
 
