@@ -113,6 +113,10 @@
           { src: "../media/robotDogHardware.png", caption: "CAD with hardware" },
           { src: "../media/robotDogPrintedParts.png", caption: "CAD with only the 3D-printed parts" }
         ]
+      },
+      {
+        href: "robot-dog/update-5.html", date: "2026-10-11", title: "Every Part Printed",
+        images: [{ src: "../media/robotdogprintpile.jpg", caption: "All of the printed parts, sorted by leg" }]
       }
     ]
   };
