@@ -117,6 +117,10 @@
       {
         href: "robot-dog/update-5.html", date: "2026-10-11", title: "Every Part Printed",
         images: [{ src: "../media/robotdogprintpile.jpg", caption: "All of the printed parts, sorted by leg" }]
+      },
+      {
+        href: "robot-dog/update-6.html", date: "2026-10-23", title: "Parts Have Arrived",
+        images: [{ src: "../media/robotDogPartsDino.jpg", caption: "All of the hardware, supervised by a dino" }]
       }
     ]
   };
